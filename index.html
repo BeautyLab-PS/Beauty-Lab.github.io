@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт за Гримове</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <h1>💄 Грим Art</h1>
+        <ul>
+            <li><a href="#home">Начало</a></li>
+            <li><a href="#gallery">Галерия</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+    </nav>
+
+    <!-- Начална секция -->
+    <section id="home" class="hero">
+        <h2>Добре дошли на нашия сайт за гримове! 🎭</h2>
+        <p>Открий магията на трансформацията чрез грим</p>
+    </section>
+
+    <!-- Галерия -->
+    <section id="gallery" class="gallery">
+        <h2>Наши Проекти</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=400" alt="Карнавален грим">
+                <h3>Карнавален грим</h3>
+                <p>Ярки цветове и весела атмосфера</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400" alt="Сценичен грим">
+                <h3>Сценичен грим</h3>
+                <p>За театър и видео продукции</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1599959375944-b4de2b60033f?w=400" alt="Специални Ефекти">
+                <h3>Специални Ефекти</h3>
+                <p>Фантазийни и страшни образи</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <h2>Наши Услуги</h2>
+        <div class="service-card">
+            <h3>💃 Карнавален грим</h3>
+            <p>Създаваме ярки и весели гримове за всички празници.</p>
+            <p class="price">50 лева</p>
+            <button class="btn-order" onclick="orderService('Карнавален грим')">Поръчай</button>
+        </div>
+        <div class="service-card">
+            <h3>🎭 Сценичен грим</h3>
+            <p>Професионален грим за театър и видео продукции.</p>
+            <p class="price">75 лева</p>
+            <button class="btn-order" onclick="orderService('Сценичен грим')">Поръчай</button>
+        </div>
+        <div class="service-card">
+            <h3>👻 Специални Ефекти</h3>
+            <p>Зомби, ранения, фантазийни същества и още много.</p>
+            <p class="price">100 лева</p>
+            <button class="btn-order" onclick="orderService('Специални Ефекти')">Поръчай</button>
+        </div>
+    </section>
+
+    <!-- Контакти -->
+    <section id="contact" class="contact">
+        <h2>Контактувай нас</h2>
+        <p>📧 Email: grim@example.com</p>
+        <p>📱 Телефон: +359 88 123 4567</p>
+        <form onsubmit="submitForm(event)">
+            <input type="text" id="name" placeholder="Име" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="message" placeholder="Твое съобщение" required></textarea>
+            <button type="submit">Изпрати</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Грим Art - Всички права запазени.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
