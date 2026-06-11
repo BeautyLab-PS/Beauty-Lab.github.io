@@ -3,147 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxe Pink Beauty</title>
-
-<style>
-:root{
-    --pink:#ff3d7f;
-    --soft:#fff0f6;
-    --dark:#111;
-    --gray:#777;
-}
-
-body{
-    margin:0;
-    font-family:"Segoe UI", sans-serif;
-    background:#fafafa;
-    color:var(--dark);
-}
-
-/* HEADER */
-header{
-    position:sticky;
-    top:0;
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 8%;
-    border-bottom:1px solid #eee;
-    z-index:1000;
-}
-
-header h1{
-    color:var(--pink);
-    font-size:20px;
-}
-
-nav a{
-    margin:0 10px;
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
-}
-
-nav a:hover{
-    color:var(--pink);
-}
-
-/* HERO */
-#home{
-    margin:20px 8%;
-    padding:60px;
-    border-radius:20px;
-    background:linear-gradient(135deg,#ffe3ef,#fff);
-}
-
-#home h2{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-/* SECTIONS */
-section{
-    padding:40px 8%;
-}
-
-/* PRODUCTS */
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-/* CARD */
-.card{
-    background:white;
-    border-radius:15px;
-    border:1px solid #eee;
-    overflow:hidden;
-    transition:0.3s;
-    box-shadow:0 2px 10px rgba(0,0,0,0.04);
-}
-
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 10px 25px rgba(255,61,127,0.15);
-}
-
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.card h4{
-    margin:10px;
-}
-
-.card p{
-    margin:0 10px 10px;
-    color:var(--gray);
-}
-
-/* BUTTON */
-button{
-    background:var(--pink);
-    color:white;
-    border:none;
-    padding:10px;
-    margin:10px;
-    width:calc(100% - 20px);
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-button:hover{
-    background:#e6005c;
-}
-
-/* CART */
-.cartBox, .checkoutBox{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    border:1px solid #eee;
-}
-
-/* FOOTER */
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:40px;
-}
-</style>
+<title>Beauty Lab</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <h1>Luxe Pink Beauty 💖</h1>
+    <h1>Beauty Lab 💖</h1>
+    <span class="tagline">Glow • Care • Confidence</span>
+
     <nav>
         <a href="#home">Home</a>
         <a href="#body">Тяло</a>
@@ -155,13 +24,14 @@ footer{
     </nav>
 </header>
 
-<!-- HOME -->
 <section id="home">
-    <h2>💖 Луксозна козметика за теб</h2>
-    <p>Модерен онлайн магазин за тийнейджърки и жени – грижа, стил и красота.</p>
+    <h2>💖 Beauty Lab</h2>
+    <p>Модерен beauty бранд за грижа, грим и стил.</p>
+
+    <input id="searchInput" onkeyup="searchProducts()" 
+    placeholder="Търси продукти...">
 </section>
 
-<!-- PRODUCTS -->
 <section id="body">
 <h2>Грижа за тяло</h2>
 <div class="products" id="bodyP"></div>
@@ -187,110 +57,26 @@ footer{
 <div class="products" id="accP"></div>
 </section>
 
-<!-- CART -->
 <section id="cart">
 <h2>🛒 Количка</h2>
+
 <div class="cartBox" id="cartBox"></div>
 <h3 id="total">Общо: 0 лв</h3>
 
 <div class="checkoutBox">
-<h3>Checkout</h3>
-<p>Име:</p>
-<input id="name" placeholder="Вашето име"><br><br>
-<p>Адрес:</p>
-<input id="address" placeholder="Адрес за доставка"><br><br>
-<button onclick="checkout()">Поръчай</button>
+    <h3>Checkout</h3>
+    <input id="name" placeholder="Име">
+    <input id="address" placeholder="Адрес">
+    <button onclick="checkout()">Поръчай</button>
 </div>
+
 </section>
 
 <footer>
-© 2026 Luxe Pink Beauty
+    © 2026 Beauty Lab
 </footer>
 
-<script>
-const data={
-body:[
-["Body Lotion Rose",12],["Vanilla Scrub",14],["Coconut Gel",10],
-["Almond Oil",15],["Hand Cream",8],["Lavender Soap",7],
-["Body Mist",11],["Bath Foam",13],["Shea Cream",16],
-["Coffee Scrub",14],["Deodorant",9],["Aloe Gel",10],
-["Fresh Lotion",12],["Body Balm",13],["Soft Cream",15]
-],
-hair:[
-["Repair Shampoo",14],["Silk Balm",13],["Argan Mask",18],
-["Shine Serum",17],["Heat Spray",12],["Curl Cream",15],
-["Hair Oil",16],["Volume Shampoo",14],["Keratin Mask",19],
-["Anti-frizz",15],["Gloss Spray",13],["Herbal Shampoo",12],
-["Coconut Balm",13],["Hydra Mask",18],["Pro Serum",20]
-],
-face:[
-["Face Foam",12],["Glow Toner",14],["Vitamin C Serum",18],
-["Hydra Cream",16],["Clay Mask",15],["Soft Scrub",13],
-["SPF 50",20],["Night Cream",17],["Eye Patches",19],
-["Cleanser",14],["Hyaluron Serum",22],["Sheet Mask",15],
-["BB Cream",16],["Gel Wash",13],["Face Balm",14]
-],
-makeup:[
-["Matte Lipstick",10],["Lip Gloss",9],["Foundation",18],
-["Volume Mascara",15],["Pink Blush",12],["Eyeshadow Palette",25],
-["Highlighter",14],["BB Cream",16],["Powder",13],
-["Brow Gel",11],["Contour Kit",20],["Fix Spray",15],
-["Lip Pencil",8],["Glow Oil",17],["Primer",19]
-],
-acc:[
-["Makeup Brush",12],["Beauty Sponge",10],["Hair Brush",14],
-["Hair Ties",5],["Headband",8],["Brush Set",20],
-["Mirror",15],["Cosmetic Bag",18],["Tweezers",7],
-["Nail File",6],["Clips",5],["Manicure Set",22],
-["Pins",6],["Beauty Case",30],["Silk Scrunchies",9]
-]
-};
-
-let cart=[];
-
-function render(list,id){
-let box=document.getElementById(id);
-box.innerHTML="";
-list.forEach(p=>{
-box.innerHTML+=`
-<div class="card">
-<img src="https://source.unsplash.com/400x300/?beauty,cosmetic" />
-<h4>${p[0]}</h4>
-<p>${p[1]} лв</p>
-<button onclick="add('${p[0]}',${p[1]})">Добави</button>
-</div>`;
-});
-}
-
-function add(n,p){
-cart.push({n,p});
-update();
-}
-
-function update(){
-let box=document.getElementById("cartBox");
-let total=0;
-box.innerHTML="";
-cart.forEach(i=>{
-total+=i.p;
-box.innerHTML+=`<p>${i.n} - ${i.p} лв</p>`;
-});
-document.getElementById("total").innerText="Общо: "+total+" лв";
-}
-
-function checkout(){
-if(cart.length==0)return alert("Количката е празна!");
-alert("Поръчката е направена 💖");
-cart=[];
-update();
-}
-
-render(data.body,"bodyP");
-render(data.hair,"hairP");
-render(data.face,"faceP");
-render(data.makeup,"makeupP");
-render(data.acc,"accP");
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
