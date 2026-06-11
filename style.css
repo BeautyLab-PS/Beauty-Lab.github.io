@@ -1,15 +1,8 @@
-:root{
-    --pink:#ff3d7f;
-    --bg:#fafafa;
-    --text:#111;
-    --gray:#777;
-}
-
 body{
     margin:0;
-    font-family:"Segoe UI", sans-serif;
-    background:var(--bg);
-    color:var(--text);
+    font-family:Segoe UI;
+    background:#fafafa;
+    color:#111;
 }
 
 /* HEADER */
@@ -25,46 +18,29 @@ header{
 }
 
 header h1{
-    color:var(--pink);
-    font-size:20px;
+    color:#ff3d7f;
 }
 
 .tagline{
     font-size:12px;
     color:#888;
-    margin-left:10px;
 }
 
+/* NAV */
 nav a{
     margin:0 8px;
     text-decoration:none;
     color:#333;
-    font-weight:500;
 }
 
-nav a:hover{
-    color:var(--pink);
-}
+nav a:hover{color:#ff3d7f}
 
 /* HOME */
 #home{
     margin:20px 8%;
-    padding:60px;
-    border-radius:18px;
+    padding:50px;
     background:linear-gradient(135deg,#ffe3ef,#fff);
-}
-
-#home h2{
-    font-size:34px;
-    color:var(--pink);
-}
-
-#home input{
-    margin-top:15px;
-    padding:10px;
-    width:250px;
-    border-radius:10px;
-    border:1px solid #ddd;
+    border-radius:15px;
 }
 
 /* PRODUCTS */
@@ -78,15 +54,14 @@ nav a:hover{
 /* CARD */
 .card{
     background:white;
-    border-radius:15px;
-    border:1px solid #eee;
+    border-radius:12px;
     overflow:hidden;
+    border:1px solid #eee;
     transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(255,61,127,0.15);
 }
 
 .card img{
@@ -101,41 +76,33 @@ nav a:hover{
 
 .card p{
     margin:0 10px 10px;
-    color:var(--gray);
+    color:#777;
 }
 
 /* BUTTON */
 button{
-    background:var(--pink);
+    background:#ff3d7f;
     color:white;
     border:none;
     padding:10px;
     width:calc(100% - 20px);
     margin:10px;
     border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-button:hover{
-    background:#e6005c;
 }
 
 /* CART */
-.cartBox,
-.checkoutBox{
+.cartBox,.checkoutBox{
     background:white;
     padding:20px;
-    border-radius:15px;
-    border:1px solid #eee;
     margin:10px 8%;
+    border-radius:12px;
+    border:1px solid #eee;
 }
 
 /* FOOTER */
 footer{
-    text-align:center;
-    padding:25px;
     background:#111;
     color:white;
-    margin-top:40px;
+    text-align:center;
+    padding:20px;
 }
