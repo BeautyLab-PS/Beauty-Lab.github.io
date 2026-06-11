@@ -1,150 +1,115 @@
+const data = {
+body:[
+["Body Lotion Rose",12],["Vanilla Scrub",14],["Coconut Gel",10],
+["Almond Oil",15],["Hand Cream",8],["Lavender Soap",7],
+["Body Mist",11],["Bath Foam",13],["Shea Cream",16],
+["Coffee Scrub",14],["Deodorant",9],["Aloe Gel",10],
+["Fresh Lotion",12],["Body Balm",13],["Soft Cream",15]
+],
+hair:[
+["Repair Shampoo",14],["Silk Balm",13],["Argan Mask",18],
+["Shine Serum",17],["Heat Spray",12],["Curl Cream",15],
+["Hair Oil",16],["Volume Shampoo",14],["Keratin Mask",19],
+["Anti-frizz",15],["Gloss Spray",13],["Herbal Shampoo",12],
+["Coconut Balm",13],["Hydra Mask",18],["Pro Serum",20]
+],
+face:[
+["Face Foam",12],["Glow Toner",14],["Vitamin C Serum",18],
+["Hydra Cream",16],["Clay Mask",15],["Soft Scrub",13],
+["SPF 50",20],["Night Cream",17],["Eye Patches",19],
+["Cleanser",14],["Hyaluron Serum",22],["Sheet Mask",15],
+["BB Cream",16],["Gel Wash",13],["Face Balm",14]
+],
+makeup:[
+["Lipstick",10],["Lip Gloss",9],["Foundation",18],
+["Mascara",15],["Blush",12],["Eyeshadow",25],
+["Highlighter",14],["BB Cream",16],["Powder",13],
+["Brow Gel",11],["Contour",20],["Fix Spray",15],
+["Lip Pencil",8],["Primer",19],["Makeup Oil",17]
+],
+acc:[
+["Brush",12],["Sponge",10],["Hair Brush",14],
+["Hair Ties",5],["Headband",8],["Brush Set",20],
+["Mirror",15],["Cosmetic Bag",18],["Tweezers",7],
+["Nail File",6],["Clips",5],["Manicure Set",22],
+["Pins",6],["Beauty Case",30],["Scrunchies",9]
+]
+};
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let favorites = JSON.parse(localStorage.getItem("fav")) || [];
 
-/* =====================
-   SAVE STATE
-===================== */
-function save(){
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("fav", JSON.stringify(favorites));
+/* RENDER */
+function render(list,id){
+let box=document.getElementById(id);
+box.innerHTML="";
+list.forEach(p=>{
+box.innerHTML+=`
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?beauty,cosmetic" />
+<h4>${p[0]}</h4>
+<p>${p[1]} лв</p>
+<button onclick="add('${p[0]}',${p[1]})">Добави</button>
+</div>`;
+});
 }
 
-/* =====================
-   NOTIFICATION (TOAST)
-===================== */
-function toast(msg){
-    let t = document.createElement("div");
-    t.innerText = msg;
-
-    t.style.position = "fixed";
-    t.style.bottom = "20px";
-    t.style.right = "20px";
-    t.style.background = "#ff3d7f";
-    t.style.color = "white";
-    t.style.padding = "12px 16px";
-    t.style.borderRadius = "10px";
-    t.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15)";
-    t.style.zIndex = "9999";
-    t.style.animation = "fade 0.3s ease";
-
-    document.body.appendChild(t);
-
-    setTimeout(()=>t.remove(), 2000);
+/* ADD */
+function add(n,p){
+cart.push({n,p});
+save();
+update();
+toast("Добавено 💖");
 }
 
-/* =====================
-   ADD TO CART
-===================== */
-function addToCart(name, price){
-    cart.push({name, price});
-    save();
-    updateCart();
-    toast("Добавено в количката 💖");
+/* CART */
+function update(){
+let box=document.getElementById("cartBox");
+let total=0;
+box.innerHTML="";
+
+cart.forEach(i=>{
+total+=i.p;
+box.innerHTML+=`<p>${i.n} - ${i.p} лв</p>`;
+});
+
+document.getElementById("total").innerText="Общо: "+total+" лв";
+localStorage.setItem("cart",JSON.stringify(cart));
 }
 
-/* =====================
-   FAVORITES
-===================== */
-function toggleFav(name){
-    if(favorites.includes(name)){
-        favorites = favorites.filter(f=>f!==name);
-        toast("Премахнато от любими");
-    } else {
-        favorites.push(name);
-        toast("Добавено в любими 💕");
-    }
-    save();
-}
-
-/* =====================
-   CART RENDER
-===================== */
-function updateCart(){
-    let box = document.getElementById("cartBox");
-    if(!box) return;
-
-    box.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item, i)=>{
-        total += item.price;
-
-        box.innerHTML += `
-        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-            <span>${item.name}</span>
-            <b>${item.price} лв</b>
-        </div>`;
-    });
-
-    let totalEl = document.getElementById("total");
-    if(totalEl) totalEl.innerText = "Общо: " + total + " лв";
-}
-
-/* =====================
-   CHECKOUT
-===================== */
+/* CHECKOUT */
 function checkout(){
-    if(cart.length === 0){
-        toast("Количката е празна!");
-        return;
-    }
-
-    cart = [];
-    save();
-    updateCart();
-    toast("Поръчката е успешна 💖✨");
+if(cart.length===0)return alert("Количката е празна!");
+alert("Поръчката е направена 💖✨");
+cart=[];
+update();
+localStorage.removeItem("cart");
 }
 
-/* =====================
-   SEARCH FUNCTION
-===================== */
+/* SEARCH */
 function searchProducts(){
-    let input = document.getElementById("searchInput");
-    if(!input) return;
-
-    let filter = input.value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(card=>{
-        let text = card.innerText.toLowerCase();
-
-        if(text.includes(filter)){
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
+let input=document.getElementById("searchInput").value.toLowerCase();
+document.querySelectorAll(".card").forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(input)?"block":"none";
+});
 }
 
-/* =====================
-   PRODUCT ENHANCEMENT
-   (adds ♥ button automatically)
-===================== */
-function enhanceProducts(){
-    document.querySelectorAll(".card").forEach(card=>{
-        if(card.querySelector(".favBtn")) return;
+/* INIT */
+render(data.body,"bodyP");
+render(data.hair,"hairP");
+render(data.face,"faceP");
+render(data.makeup,"makeupP");
+render(data.acc,"accP");
+update();
 
-        let name = card.querySelector("h4")?.innerText || "";
-
-        let btn = document.createElement("button");
-        btn.innerText = "♥ Любими";
-        btn.className = "favBtn";
-
-        btn.style.background = "#111";
-        btn.style.marginTop = "5px";
-
-        btn.onclick = ()=>toggleFav(name);
-
-        card.appendChild(btn);
-    });
+/* TOAST */
+function toast(msg){
+let t=document.createElement("div");
+t.innerText=msg;
+t.style.cssText=`
+position:fixed;bottom:20px;right:20px;
+background:#ff3d7f;color:white;
+padding:10px 15px;border-radius:10px;
+`;
+document.body.appendChild(t);
+setTimeout(()=>t.remove(),2000);
 }
-
-/* =====================
-   INIT LOOP
-===================== */
-setInterval(()=>{
-    enhanceProducts();
-}, 1000);
-
-/* initial load */
-updateCart();
