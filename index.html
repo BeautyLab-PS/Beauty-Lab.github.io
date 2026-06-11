@@ -1,86 +1,270 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Store</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Beauty Shop V2</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #fff3f7;
+}
+
+header {
+    background: #ff3d7f;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    margin: 5px 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 40px;
+}
+
+h2 {
+    color: #ff2f6d;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+button {
+    background: #ff3d7f;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e6005c;
+}
+
+.cartBox {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.loginBox {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Beauty Store</h1>
+<header>
+    <h1>Glow Beauty 💖</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#body">Тяло</a>
+        <a href="#hair">Коса</a>
+        <a href="#face">Лице</a>
+        <a href="#makeup">Грим</a>
+        <a href="#acc">Аксесоари</a>
+        <a href="#cart">Количка</a>
+        <a href="#login">Login</a>
+    </nav>
+</header>
 
-        <nav>
-            <a href="#body">Грижа за тяло</a>
-            <a href="#face">Грижа за лице</a>
-            <a href="#hair">Грижа за коса</a>
-            <a href="#makeup">Козметика</a>
-            <a href="#accessories">Аксесоари</a>
-        </nav>
-    </header>
+<section id="home">
+    <h2>Добре дошли 💕</h2>
+    <p>Козметика за тийнейджърки и жени – модерно, нежно и красиво.</p>
+</section>
 
-    <section class="hero">
-        <div class="overlay">
-            <h2>Всичко за твоята красота</h2>
-            <p>Качествени продукти за ежедневна грижа.</p>
-        </div>
-    </section>
+<!-- PRODUCTS -->
+<section id="body">
+<h2>Грижа за тяло</h2>
+<div class="products" id="bodyProducts"></div>
+</section>
 
-    <section id="body" class="category">
-        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800" alt="Грижа за тяло">
-        <div class="text">
-            <h2>Грижа за тяло</h2>
-            <p>
-                Лосиони, масла, душ гелове и продукти за мека и хидратирана кожа.
-            </p>
-        </div>
-    </section>
+<section id="hair">
+<h2>Грижа за коса</h2>
+<div class="products" id="hairProducts"></div>
+</section>
 
-    <section id="face" class="category reverse">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800" alt="Грижа за лице">
-        <div class="text">
-            <h2>Грижа за лице</h2>
-            <p>
-                Кремове, серуми и почистващи продукти за сияйна кожа.
-            </p>
-        </div>
-    </section>
+<section id="face">
+<h2>Грижа за лице</h2>
+<div class="products" id="faceProducts"></div>
+</section>
 
-    <section id="hair" class="category">
-        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800" alt="Грижа за коса">
-        <div class="text">
-            <h2>Грижа за коса</h2>
-            <p>
-                Шампоани, балсами, маски и професионална грижа за косата.
-            </p>
-        </div>
-    </section>
+<section id="makeup">
+<h2>Грим</h2>
+<div class="products" id="makeupProducts"></div>
+</section>
 
-    <section id="makeup" class="category reverse">
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800" alt="Козметика">
-        <div class="text">
-            <h2>Козметика</h2>
-            <p>
-                Червила, сенки, спирали и всичко необходимо за перфектен грим.
-            </p>
-        </div>
-    </section>
+<section id="acc">
+<h2>Аксесоари</h2>
+<div class="products" id="accProducts"></div>
+</section>
 
-    <section id="accessories" class="category">
-        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800" alt="Аксесоари">
-        <div class="text">
-            <h2>Аксесоари</h2>
-            <p>
-                Четки, козметични чанти, гъбички и полезни инструменти за грим.
-            </p>
-        </div>
-    </section>
+<!-- CART -->
+<section id="cart">
+<h2>🛒 Количка</h2>
+<div class="cartBox" id="cartBox"></div>
+<h3 id="total">Общо: 0 лв</h3>
+<button onclick="checkout()">Плати</button>
+</section>
 
-    <footer>
-        <p>© 2026 Beauty Store | Красота и грижа всеки ден.</p>
-    </footer>
+<!-- LOGIN -->
+<section id="login">
+<h2>Login</h2>
+<div class="loginBox">
+<input id="user" placeholder="Потребител"><br><br>
+<input id="pass" type="password" placeholder="Парола"><br><br>
+<button onclick="login()">Вход</button>
+<p id="loginMsg"></p>
+</div>
+</section>
+
+<script>
+// PRODUCTS
+const data = {
+body: [
+["Лосион Rose", 12], ["Скраб Vanilla", 14], ["Душ гел", 10],
+["Масло Almond", 15], ["Крем ръце", 8], ["Сапун Lavender", 6],
+["Body Mist", 11], ["Пяна вана", 13], ["Крем Shea", 16],
+["Скраб Coffee", 14], ["Дезодорант", 9], ["Гел Aloe", 10],
+["Лосион Fresh", 12], ["Балсам Body", 13], ["Крем Soft", 15]
+],
+
+hair: [
+["Шампоан Repair", 14], ["Балсам Silk", 13], ["Маска Argan", 18],
+["Серум Shine", 17], ["Спрей Heat", 12], ["Крем Curls", 15],
+["Масло Hair", 16], ["Volume шампоан", 14], ["Keratin маска", 19],
+["Anti-frizz", 15], ["Gloss спрей", 13], ["Herbal шампоан", 12],
+["Балсам Coconut", 13], ["Маска Hydra", 18], ["Серум Pro", 20]
+],
+
+face: [
+["Пяна Face", 12], ["Тоник Glow", 14], ["Vitamin C", 18],
+["Крем Hydrate", 16], ["Clay маска", 15], ["Скраб Soft", 13],
+["SPF 50", 20], ["Night крем", 17], ["Eye patches", 19],
+["Cleanser", 14], ["Hyaluron serum", 22], ["Sheet mask", 15],
+["BB Cream", 16], ["Gel wash", 13], ["Face balm", 14]
+],
+
+makeup: [
+["Червило Matte", 10], ["Lip gloss", 9], ["Фон дьо тен", 18],
+["Спирала Volume", 15], ["Руж Pink", 12], ["Палитра сенки", 25],
+["Хайлайтър", 14], ["BB Cream", 16], ["Пудра", 13],
+["Вежди гел", 11], ["Контур палитра", 20], ["Fix спрей", 15],
+["Молив устни", 8], ["Glow oil", 17], ["Primer", 19]
+],
+
+acc: [
+["Четка грим", 12], ["Beauty Blender", 10], ["Четка коса", 14],
+["Ластици", 5], ["Диадема", 8], ["Комплект четки", 20],
+["Огледало", 15], ["Козметична чантичка", 18], ["Пила", 6],
+["Пинсета", 7], ["Шноли", 5], ["Маникюр сет", 22],
+["Щипки", 6], ["Куфар грим", 30], ["Ластици silk", 9]
+]
+};
+
+// CART
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function render(category, id){
+    const container = document.getElementById(id);
+    container.innerHTML = "";
+
+    data[category].forEach(item=>{
+        container.innerHTML += `
+        <div class="card">
+            <img src="https://source.unsplash.com/200x200/?${category},beauty" />
+            <h4>${item[0]}</h4>
+            <p>${item[1]} лв</p>
+            <button onclick="addToCart('${item[0]}', ${item[1]})">
+                Добави
+            </button>
+        </div>`;
+    });
+}
+
+function addToCart(name, price){
+    cart.push({name, price});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+}
+
+function updateCart(){
+    let box = document.getElementById("cartBox");
+    box.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((p,i)=>{
+        total += p.price;
+        box.innerHTML += `<p>${p.name} - ${p.price} лв</p>`;
+    });
+
+    document.getElementById("total").innerText = "Общо: " + total + " лв";
+}
+
+function checkout(){
+    if(cart.length === 0) return alert("Количката е празна!");
+    alert("Поръчката е направена 💖");
+    cart = [];
+    localStorage.removeItem("cart");
+    updateCart();
+}
+
+// LOGIN (fake)
+function login(){
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    if(u && p){
+        document.getElementById("loginMsg").innerText =
+        "Добре дошла, " + u + " 💖";
+    } else {
+        document.getElementById("loginMsg").innerText =
+        "Моля попълни полетата!";
+    }
+}
+
+// INIT
+render("body","bodyProducts");
+render("hair","hairProducts");
+render("face","faceProducts");
+render("makeup","makeupProducts");
+render("acc","accProducts");
+
+updateCart();
+</script>
 
 </body>
 </html>
-
