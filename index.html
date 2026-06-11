@@ -3,84 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glow Beauty Shop V2</title>
+<title>Luxe Pink Beauty</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #fff3f7;
+:root{
+    --pink:#ff3d7f;
+    --soft:#fff0f6;
+    --dark:#111;
+    --gray:#777;
 }
 
-header {
-    background: #ff3d7f;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+body{
+    margin:0;
+    font-family:"Segoe UI", sans-serif;
+    background:#fafafa;
+    color:var(--dark);
 }
 
-nav a {
-    color: white;
-    margin: 5px 10px;
-    text-decoration: none;
-    font-weight: bold;
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+    border-bottom:1px solid #eee;
+    z-index:1000;
 }
 
-section {
-    padding: 40px;
+header h1{
+    color:var(--pink);
+    font-size:20px;
 }
 
-h2 {
-    color: #ff2f6d;
+nav a{
+    margin:0 10px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+nav a:hover{
+    color:var(--pink);
 }
 
-.card {
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+/* HERO */
+#home{
+    margin:20px 8%;
+    padding:60px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#ffe3ef,#fff);
 }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
+#home h2{
+    font-size:32px;
+    margin-bottom:10px;
 }
 
-button {
-    background: #ff3d7f;
-    color: white;
-    border: none;
-    padding: 8px;
-    margin-top: 5px;
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
+/* SECTIONS */
+section{
+    padding:40px 8%;
 }
 
-button:hover {
-    background: #e6005c;
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-.cartBox {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
+/* CARD */
+.card{
+    background:white;
+    border-radius:15px;
+    border:1px solid #eee;
+    overflow:hidden;
+    transition:0.3s;
+    box-shadow:0 2px 10px rgba(0,0,0,0.04);
 }
 
-.loginBox {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 300px;
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(255,61,127,0.15);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card h4{
+    margin:10px;
+}
+
+.card p{
+    margin:0 10px 10px;
+    color:var(--gray);
+}
+
+/* BUTTON */
+button{
+    background:var(--pink);
+    color:white;
+    border:none;
+    padding:10px;
+    margin:10px;
+    width:calc(100% - 20px);
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#e6005c;
+}
+
+/* CART */
+.cartBox, .checkoutBox{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid #eee;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -88,7 +143,7 @@ button:hover {
 <body>
 
 <header>
-    <h1>Glow Beauty 💖</h1>
+    <h1>Luxe Pink Beauty 💖</h1>
     <nav>
         <a href="#home">Home</a>
         <a href="#body">Тяло</a>
@@ -97,39 +152,39 @@ button:hover {
         <a href="#makeup">Грим</a>
         <a href="#acc">Аксесоари</a>
         <a href="#cart">Количка</a>
-        <a href="#login">Login</a>
     </nav>
 </header>
 
+<!-- HOME -->
 <section id="home">
-    <h2>Добре дошли 💕</h2>
-    <p>Козметика за тийнейджърки и жени – модерно, нежно и красиво.</p>
+    <h2>💖 Луксозна козметика за теб</h2>
+    <p>Модерен онлайн магазин за тийнейджърки и жени – грижа, стил и красота.</p>
 </section>
 
 <!-- PRODUCTS -->
 <section id="body">
 <h2>Грижа за тяло</h2>
-<div class="products" id="bodyProducts"></div>
+<div class="products" id="bodyP"></div>
 </section>
 
 <section id="hair">
 <h2>Грижа за коса</h2>
-<div class="products" id="hairProducts"></div>
+<div class="products" id="hairP"></div>
 </section>
 
 <section id="face">
 <h2>Грижа за лице</h2>
-<div class="products" id="faceProducts"></div>
+<div class="products" id="faceP"></div>
 </section>
 
 <section id="makeup">
 <h2>Грим</h2>
-<div class="products" id="makeupProducts"></div>
+<div class="products" id="makeupP"></div>
 </section>
 
 <section id="acc">
 <h2>Аксесоари</h2>
-<div class="products" id="accProducts"></div>
+<div class="products" id="accP"></div>
 </section>
 
 <!-- CART -->
@@ -137,133 +192,104 @@ button:hover {
 <h2>🛒 Количка</h2>
 <div class="cartBox" id="cartBox"></div>
 <h3 id="total">Общо: 0 лв</h3>
-<button onclick="checkout()">Плати</button>
-</section>
 
-<!-- LOGIN -->
-<section id="login">
-<h2>Login</h2>
-<div class="loginBox">
-<input id="user" placeholder="Потребител"><br><br>
-<input id="pass" type="password" placeholder="Парола"><br><br>
-<button onclick="login()">Вход</button>
-<p id="loginMsg"></p>
+<div class="checkoutBox">
+<h3>Checkout</h3>
+<p>Име:</p>
+<input id="name" placeholder="Вашето име"><br><br>
+<p>Адрес:</p>
+<input id="address" placeholder="Адрес за доставка"><br><br>
+<button onclick="checkout()">Поръчай</button>
 </div>
 </section>
 
+<footer>
+© 2026 Luxe Pink Beauty
+</footer>
+
 <script>
-// PRODUCTS
-const data = {
-body: [
-["Лосион Rose", 12], ["Скраб Vanilla", 14], ["Душ гел", 10],
-["Масло Almond", 15], ["Крем ръце", 8], ["Сапун Lavender", 6],
-["Body Mist", 11], ["Пяна вана", 13], ["Крем Shea", 16],
-["Скраб Coffee", 14], ["Дезодорант", 9], ["Гел Aloe", 10],
-["Лосион Fresh", 12], ["Балсам Body", 13], ["Крем Soft", 15]
+const data={
+body:[
+["Body Lotion Rose",12],["Vanilla Scrub",14],["Coconut Gel",10],
+["Almond Oil",15],["Hand Cream",8],["Lavender Soap",7],
+["Body Mist",11],["Bath Foam",13],["Shea Cream",16],
+["Coffee Scrub",14],["Deodorant",9],["Aloe Gel",10],
+["Fresh Lotion",12],["Body Balm",13],["Soft Cream",15]
 ],
-
-hair: [
-["Шампоан Repair", 14], ["Балсам Silk", 13], ["Маска Argan", 18],
-["Серум Shine", 17], ["Спрей Heat", 12], ["Крем Curls", 15],
-["Масло Hair", 16], ["Volume шампоан", 14], ["Keratin маска", 19],
-["Anti-frizz", 15], ["Gloss спрей", 13], ["Herbal шампоан", 12],
-["Балсам Coconut", 13], ["Маска Hydra", 18], ["Серум Pro", 20]
+hair:[
+["Repair Shampoo",14],["Silk Balm",13],["Argan Mask",18],
+["Shine Serum",17],["Heat Spray",12],["Curl Cream",15],
+["Hair Oil",16],["Volume Shampoo",14],["Keratin Mask",19],
+["Anti-frizz",15],["Gloss Spray",13],["Herbal Shampoo",12],
+["Coconut Balm",13],["Hydra Mask",18],["Pro Serum",20]
 ],
-
-face: [
-["Пяна Face", 12], ["Тоник Glow", 14], ["Vitamin C", 18],
-["Крем Hydrate", 16], ["Clay маска", 15], ["Скраб Soft", 13],
-["SPF 50", 20], ["Night крем", 17], ["Eye patches", 19],
-["Cleanser", 14], ["Hyaluron serum", 22], ["Sheet mask", 15],
-["BB Cream", 16], ["Gel wash", 13], ["Face balm", 14]
+face:[
+["Face Foam",12],["Glow Toner",14],["Vitamin C Serum",18],
+["Hydra Cream",16],["Clay Mask",15],["Soft Scrub",13],
+["SPF 50",20],["Night Cream",17],["Eye Patches",19],
+["Cleanser",14],["Hyaluron Serum",22],["Sheet Mask",15],
+["BB Cream",16],["Gel Wash",13],["Face Balm",14]
 ],
-
-makeup: [
-["Червило Matte", 10], ["Lip gloss", 9], ["Фон дьо тен", 18],
-["Спирала Volume", 15], ["Руж Pink", 12], ["Палитра сенки", 25],
-["Хайлайтър", 14], ["BB Cream", 16], ["Пудра", 13],
-["Вежди гел", 11], ["Контур палитра", 20], ["Fix спрей", 15],
-["Молив устни", 8], ["Glow oil", 17], ["Primer", 19]
+makeup:[
+["Matte Lipstick",10],["Lip Gloss",9],["Foundation",18],
+["Volume Mascara",15],["Pink Blush",12],["Eyeshadow Palette",25],
+["Highlighter",14],["BB Cream",16],["Powder",13],
+["Brow Gel",11],["Contour Kit",20],["Fix Spray",15],
+["Lip Pencil",8],["Glow Oil",17],["Primer",19]
 ],
-
-acc: [
-["Четка грим", 12], ["Beauty Blender", 10], ["Четка коса", 14],
-["Ластици", 5], ["Диадема", 8], ["Комплект четки", 20],
-["Огледало", 15], ["Козметична чантичка", 18], ["Пила", 6],
-["Пинсета", 7], ["Шноли", 5], ["Маникюр сет", 22],
-["Щипки", 6], ["Куфар грим", 30], ["Ластици silk", 9]
+acc:[
+["Makeup Brush",12],["Beauty Sponge",10],["Hair Brush",14],
+["Hair Ties",5],["Headband",8],["Brush Set",20],
+["Mirror",15],["Cosmetic Bag",18],["Tweezers",7],
+["Nail File",6],["Clips",5],["Manicure Set",22],
+["Pins",6],["Beauty Case",30],["Silk Scrunchies",9]
 ]
 };
 
-// CART
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart=[];
 
-function render(category, id){
-    const container = document.getElementById(id);
-    container.innerHTML = "";
-
-    data[category].forEach(item=>{
-        container.innerHTML += `
-        <div class="card">
-            <img src="https://source.unsplash.com/200x200/?${category},beauty" />
-            <h4>${item[0]}</h4>
-            <p>${item[1]} лв</p>
-            <button onclick="addToCart('${item[0]}', ${item[1]})">
-                Добави
-            </button>
-        </div>`;
-    });
+function render(list,id){
+let box=document.getElementById(id);
+box.innerHTML="";
+list.forEach(p=>{
+box.innerHTML+=`
+<div class="card">
+<img src="https://source.unsplash.com/400x300/?beauty,cosmetic" />
+<h4>${p[0]}</h4>
+<p>${p[1]} лв</p>
+<button onclick="add('${p[0]}',${p[1]})">Добави</button>
+</div>`;
+});
 }
 
-function addToCart(name, price){
-    cart.push({name, price});
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCart();
+function add(n,p){
+cart.push({n,p});
+update();
 }
 
-function updateCart(){
-    let box = document.getElementById("cartBox");
-    box.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((p,i)=>{
-        total += p.price;
-        box.innerHTML += `<p>${p.name} - ${p.price} лв</p>`;
-    });
-
-    document.getElementById("total").innerText = "Общо: " + total + " лв";
+function update(){
+let box=document.getElementById("cartBox");
+let total=0;
+box.innerHTML="";
+cart.forEach(i=>{
+total+=i.p;
+box.innerHTML+=`<p>${i.n} - ${i.p} лв</p>`;
+});
+document.getElementById("total").innerText="Общо: "+total+" лв";
 }
 
 function checkout(){
-    if(cart.length === 0) return alert("Количката е празна!");
-    alert("Поръчката е направена 💖");
-    cart = [];
-    localStorage.removeItem("cart");
-    updateCart();
+if(cart.length==0)return alert("Количката е празна!");
+alert("Поръчката е направена 💖");
+cart=[];
+update();
 }
 
-// LOGIN (fake)
-function login(){
-    let u = document.getElementById("user").value;
-    let p = document.getElementById("pass").value;
-
-    if(u && p){
-        document.getElementById("loginMsg").innerText =
-        "Добре дошла, " + u + " 💖";
-    } else {
-        document.getElementById("loginMsg").innerText =
-        "Моля попълни полетата!";
-    }
-}
-
-// INIT
-render("body","bodyProducts");
-render("hair","hairProducts");
-render("face","faceProducts");
-render("makeup","makeupProducts");
-render("acc","accProducts");
-
-updateCart();
+render(data.body,"bodyP");
+render(data.hair,"hairP");
+render(data.face,"faceP");
+render(data.makeup,"makeupP");
+render(data.acc,"accP");
 </script>
 
 </body>
