@@ -1,375 +1,99 @@
-/* =========================
-   BEAUTY LAB JAVASCRIPT
-========================= */
-
-/* PRODUCTS */
-
-const skincareProducts = [
-{
-name:"Glow Serum",
-price:29,
-image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600"
-},
-{
-name:"Rose Toner",
-price:22,
-image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600"
-},
-{
-name:"Vitamin C Cream",
-price:35,
-image:"https://images.unsplash.com/photo-1612810436541-336d3f4f9f8f?w=600"
-}
-];
-
-const hairProducts = [
-{
-name:"Hair Oil",
-price:25,
-image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
-},
-{
-name:"Repair Mask",
-price:28,
-image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600"
-},
-{
-name:"Silk Shampoo",
-price:20,
-image:"https://images.unsplash.com/photo-1620916566600-7a4b2e9f2d61?w=600"
-}
-];
-
-const makeupProducts = [
-{
-name:"Lip Gloss",
-price:18,
-image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600"
-},
-{
-name:"Mascara",
-price:24,
-image:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
-},
-{
-name:"Foundation",
-price:32,
-image:"https://images.unsplash.com/photo-1631214524020-3a6b7d5c4c77?w=600"
-}
-];
-
-const accessoryProducts = [
-{
-name:"Brush Set",
-price:26,
-image:"https://images.unsplash.com/photo-1512207846876-bb54ef5056fe?w=600"
-},
-{
-name:"Beauty Sponge",
-price:12,
-image:"https://images.unsplash.com/photo-1607602132700-068258c6f8d5?w=600"
-},
-{
-name:"Mirror",
-price:19,
-image:"https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600"
-}
-];
-
-/* CART */
-
-let cart =
-JSON.parse(localStorage.getItem("beautyCart"))
-|| [];
-
-let orders =
-JSON.parse(localStorage.getItem("beautyOrders"))
-|| [];
-
-/* RENDER PRODUCTS */
-
-function renderProducts(products, containerId){
-
-const container =
-document.getElementById(containerId);
-
-if(!container) return;
-
-products.forEach(product=>{
-
-container.innerHTML += `
-
-<div class="product-card">
-
-<img src="${product.image}">
-
-<div class="product-info">
-
-<h3>${product.name}</h3>
-
-<p>Luxury Beauty Product</p>
-
-<div class="price">
-${product.price} лв
-</div>
-
-<button onclick="
-addToCart(
-'${product.name}',
-${product.price}
-)
-">
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
+body {
+  font-family: Arial;
+  margin: 0;
+  background: linear-gradient(135deg, #ffd1dc, #fff0f5);
+  color: #333;
 }
 
-/* LOAD PRODUCTS */
-
-renderProducts(
-skincareProducts,
-"skincareProducts"
-);
-
-renderProducts(
-hairProducts,
-"hairProducts"
-);
-
-renderProducts(
-makeupProducts,
-"makeupProducts"
-);
-
-renderProducts(
-accessoryProducts,
-"accessoryProducts"
-);
-
-/* ADD TO CART */
-
-function addToCart(name,price){
-
-cart.push({
-name,
-price
-});
-
-localStorage.setItem(
-"beautyCart",
-JSON.stringify(cart)
-);
-
-updateCart();
-
-showToast();
-
+header {
+  background: #ff4fa3;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
 
-/* UPDATE CART */
-
-function updateCart(){
-
-const cartItems =
-document.getElementById("cartItems");
-
-const cartCount =
-document.getElementById("cartCount");
-
-const cartTotal =
-document.getElementById("cartTotal");
-
-if(!cartItems) return;
-
-cartItems.innerHTML = "";
-
-let total = 0;
-
-cart.forEach(item=>{
-
-total += item.price;
-
-cartItems.innerHTML += `
-
-<div style="
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid #eee;
-">
-
-<span>${item.name}</span>
-
-<span>${item.price} лв</span>
-
-</div>
-
-`;
-
-});
-
-cartCount.textContent =
-cart.length;
-
-cartTotal.textContent =
-"Total: " + total + " лв";
-
+nav button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
 }
 
-/* SEARCH */
-
-function searchProducts(){
-
-const input =
-document.getElementById("searchInput");
-
-const filter =
-input.value.toLowerCase();
-
-const cards =
-document.querySelectorAll(".product-card");
-
-cards.forEach(card=>{
-
-const text =
-card.textContent.toLowerCase();
-
-if(text.includes(filter)){
-
-card.style.display = "block";
-
-}
-else{
-
-card.style.display = "none";
-
+nav button:hover {
+  background: #ffe0ef;
 }
 
-});
-
+#search {
+  padding: 10px;
+  width: 60%;
+  border-radius: 20px;
+  border: none;
+  margin-top: 10px;
 }
 
-/* CHECKOUT */
-
-function checkout(){
-
-if(cart.length === 0){
-
-alert(
-"Your cart is empty!"
-);
-
-return;
-
+.section {
+  display: none;
+  padding: 20px;
 }
 
-orders.push({
-
-date:
-new Date().toLocaleDateString(),
-
-items:[...cart]
-
-});
-
-localStorage.setItem(
-"beautyOrders",
-JSON.stringify(orders)
-);
-
-localStorage.removeItem(
-"beautyCart"
-);
-
-cart=[];
-
-updateCart();
-
-renderOrders();
-
-alert(
-"Order placed successfully 💖"
-);
-
+.section.active {
+  display: block;
 }
 
-/* ORDERS */
-
-function renderOrders(){
-
-const container =
-document.getElementById(
-"ordersContainer"
-);
-
-if(!container) return;
-
-container.innerHTML = "";
-
-orders.forEach(order=>{
-
-container.innerHTML += `
-
-<div style="
-padding:20px;
-margin-bottom:15px;
-background:#fff8fb;
-border-radius:15px;
-">
-
-<h4>
-Order Date:
-${order.date}
-</h4>
-
-<p>
-Products:
-${order.items.length}
-</p>
-
-</div>
-
-`;
-
-});
-
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
-renderOrders();
-
-/* TOAST */
-
-function showToast(){
-
-const toast =
-document.getElementById(
-"toast"
-);
-
-toast.classList.add(
-"show"
-);
-
-setTimeout(()=>{
-
-toast.classList.remove(
-"show"
-);
-
-},2000);
-
+.product {
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-/* INITIAL LOAD */
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
 
-updateCart();
+button {
+  background: #ff4fa3;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff2f8a;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  margin: 10% auto;
+  width: 300px;
+  border-radius: 15px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
