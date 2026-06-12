@@ -1,93 +1,118 @@
-const data = {
-body:[
-["Body Lotion Rose",12,"https://images.unsplash.com/photo-1612810436541-336d3f4f9f8f"],
-["Vanilla Scrub",14,"https://images.unsplash.com/photo-1611930022073-84f7f5f2f3a0"],
-["Coconut Gel",10,"https://images.unsplash.com/photo-1612810436541-8f2a1b2c3d4e"],
-["Almond Oil",15,"https://images.unsplash.com/photo-1611930022412-0f5f6f7a8b9c"],
-["Hand Cream",8,"https://images.unsplash.com/photo-1612810436580-1a2b3c4d5e6f"]
-],
+const products = [
+  {
+    id: 1,
+    name: "Glow Serum",
+    price: 29.99,
+    category: "face",
+    img: "https://images.unsplash.com/photo-1612810436541-336d9c3f6a3a",
+    desc: "Серум за сияйна и гладка кожа."
+  },
+  {
+    id: 2,
+    name: "Body Lotion Pink Velvet",
+    price: 19.99,
+    category: "body",
+    img: "https://images.unsplash.com/photo-1616671276441-1b9b8c2f3c8b",
+    desc: "Хидратиращ луксозен лосион."
+  },
+  {
+    id: 3,
+    name: "Hair Repair Mask",
+    price: 24.99,
+    category: "hair",
+    img: "https://images.unsplash.com/photo-1620916566398-39f2f2f4d1f3",
+    desc: "Възстановяваща маска за коса."
+  },
+  {
+    id: 4,
+    name: "Luxury Lip Gloss",
+    price: 14.99,
+    category: "makeup",
+    img: "https://images.unsplash.com/photo-1596704017254-9b121068fb31",
+    desc: "Сладък гланц с блясък."
+  }
+];
 
-hair:[
-["Repair Shampoo",14,"https://images.unsplash.com/photo-1620916566398-39f8d2c1a1a1"],
-["Silk Balm",13,"https://images.unsplash.com/photo-1616671276441-2a3b4c5d6e7f"],
-["Argan Mask",18,"https://images.unsplash.com/photo-1620916566600-1f2e3d4c5b6a"]
-],
+let cart = [];
+let favorites = [];
+let currentProduct = null;
 
-face:[
-["Face Foam",12,"https://images.unsplash.com/photo-1596462502278-27bfdc403348"],
-["Vitamin C Serum",18,"https://images.unsplash.com/photo-1611930022232-1a2b3c4d5e6f"],
-["Hydra Cream",16,"https://images.unsplash.com/photo-1612810436600-abcdef123456"]
-],
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 
-makeup:[
-["Lipstick",10,"https://images.unsplash.com/photo-1586495777744-4413f21062fa"],
-["Foundation",18,"https://images.unsplash.com/photo-1596462502278-1a2b3c4d5e6f"],
-["Mascara",15,"https://images.unsplash.com/photo-1612810436610-abcdef987654"]
-],
+function renderProducts(list = products){
+  const container = document.getElementById("products");
+  container.innerHTML = "";
 
-acc:[
-["Brush Set",20,"https://images.unsplash.com/photo-1612810436620-123456abcdef"],
-["Beauty Sponge",10,"https://images.unsplash.com/photo-1612810436630-abcdefabcdef"]
-]
-};
+  list.forEach(p => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p>${p.price} лв</p>
+        <button onclick="openProduct(${p.id})">Преглед</button>
+        <button onclick="addToCart(${p.id})">🛒</button>
+        <button onclick="addFav(${p.id})">❤️</button>
+      </div>
+    `;
+  });
+}
 
-let cart=[];
+function openProduct(id){
+  const p = products.find(x => x.id === id);
+  currentProduct = p;
 
-/* RENDER */
-function render(list,id){
-let box=document.getElementById(id);
-box.innerHTML="";
+  document.getElementById("modalImg").src = p.img;
+  document.getElementById("modalTitle").innerText = p.name;
+  document.getElementById("modalDesc").innerText = p.desc;
+  document.getElementById("modalPrice").innerText = p.price + " лв";
 
-list.forEach(p=>{
-box.innerHTML+=`
-<div class="card">
-<img src="${p[2]}" />
-<h4>${p[0]}</h4>
-<p>${p[1]} лв</p>
-<button onclick="add('${p[0]}',${p[1]})">Добави</button>
-</div>`;
+  document.getElementById("modal").style.display = "block";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+
+function addToCart(id){
+  const p = products.find(x => x.id === id);
+  cart.push(p);
+  alert("Добавено в количката!");
+  renderCart();
+}
+
+function addToCartFromModal(){
+  cart.push(currentProduct);
+  alert("Добавено!");
+  renderCart();
+}
+
+function renderCart(){
+  const c = document.getElementById("cartItems");
+  c.innerHTML = cart.map(p => `<p>${p.name} - ${p.price} лв</p>`).join("");
+}
+
+function addFav(id){
+  const p = products.find(x => x.id === id);
+  favorites.push(p);
+  renderFav();
+}
+
+function renderFav(){
+  const f = document.getElementById("favItems");
+  f.innerHTML = favorites.map(p => `<p>❤️ ${p.name}</p>`).join("");
+}
+
+function filterCategory(cat){
+  if(cat === "all") renderProducts();
+  else renderProducts(products.filter(p => p.category === cat));
+}
+
+document.getElementById("search").addEventListener("input", e => {
+  const val = e.target.value.toLowerCase();
+  renderProducts(products.filter(p => p.name.toLowerCase().includes(val)));
 });
-}
 
-/* ADD */
-function add(n,p){
-cart.push({n,p});
-update();
-}
-
-/* UPDATE CART */
-function update(){
-let box=document.getElementById("cartBox");
-let total=0;
-box.innerHTML="";
-
-cart.forEach(i=>{
-total+=i.p;
-box.innerHTML+=`<p>${i.n} - ${i.p} лв</p>`;
-});
-
-document.getElementById("total").innerText="Общо: "+total+" лв";
-}
-
-/* CHECKOUT */
-function checkout(){
-alert("Поръчката е успешна 💖");
-cart=[];
-update();
-}
-
-/* SEARCH */
-function searchProducts(){
-let input=document.getElementById("searchInput").value.toLowerCase();
-
-document.querySelectorAll(".card").forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(input)?"block":"none";
-});
-}
-
-/* INIT */
-render(data.body,"bodyP");
-render(data.hair,"hairP");
-render(data.face,"faceP");
-render(data.makeup,"makeupP");
-render(data.acc,"accP");
+renderProducts();
