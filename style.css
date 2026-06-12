@@ -1,415 +1,375 @@
 /* =========================
-   BEAUTY LAB STYLE
+   BEAUTY LAB JAVASCRIPT
 ========================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+/* PRODUCTS */
+
+const skincareProducts = [
+{
+name:"Glow Serum",
+price:29,
+image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600"
+},
+{
+name:"Rose Toner",
+price:22,
+image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600"
+},
+{
+name:"Vitamin C Cream",
+price:35,
+image:"https://images.unsplash.com/photo-1612810436541-336d3f4f9f8f?w=600"
+}
+];
+
+const hairProducts = [
+{
+name:"Hair Oil",
+price:25,
+image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
+},
+{
+name:"Repair Mask",
+price:28,
+image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600"
+},
+{
+name:"Silk Shampoo",
+price:20,
+image:"https://images.unsplash.com/photo-1620916566600-7a4b2e9f2d61?w=600"
+}
+];
+
+const makeupProducts = [
+{
+name:"Lip Gloss",
+price:18,
+image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600"
+},
+{
+name:"Mascara",
+price:24,
+image:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
+},
+{
+name:"Foundation",
+price:32,
+image:"https://images.unsplash.com/photo-1631214524020-3a6b7d5c4c77?w=600"
+}
+];
+
+const accessoryProducts = [
+{
+name:"Brush Set",
+price:26,
+image:"https://images.unsplash.com/photo-1512207846876-bb54ef5056fe?w=600"
+},
+{
+name:"Beauty Sponge",
+price:12,
+image:"https://images.unsplash.com/photo-1607602132700-068258c6f8d5?w=600"
+},
+{
+name:"Mirror",
+price:19,
+image:"https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600"
+}
+];
+
+/* CART */
+
+let cart =
+JSON.parse(localStorage.getItem("beautyCart"))
+|| [];
+
+let orders =
+JSON.parse(localStorage.getItem("beautyOrders"))
+|| [];
+
+/* RENDER PRODUCTS */
+
+function renderProducts(products, containerId){
+
+const container =
+document.getElementById(containerId);
+
+if(!container) return;
+
+products.forEach(product=>{
+
+container.innerHTML += `
+
+<div class="product-card">
+
+<img src="${product.image}">
+
+<div class="product-info">
+
+<h3>${product.name}</h3>
+
+<p>Luxury Beauty Product</p>
+
+<div class="price">
+${product.price} лв
+</div>
+
+<button onclick="
+addToCart(
+'${product.name}',
+${product.price}
+)
+">
+
+Add To Cart
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#fff;
-color:#222;
+/* LOAD PRODUCTS */
+
+renderProducts(
+skincareProducts,
+"skincareProducts"
+);
+
+renderProducts(
+hairProducts,
+"hairProducts"
+);
+
+renderProducts(
+makeupProducts,
+"makeupProducts"
+);
+
+renderProducts(
+accessoryProducts,
+"accessoryProducts"
+);
+
+/* ADD TO CART */
+
+function addToCart(name,price){
+
+cart.push({
+name,
+price
+});
+
+localStorage.setItem(
+"beautyCart",
+JSON.stringify(cart)
+);
+
+updateCart();
+
+showToast();
+
 }
 
-/* HEADER */
+/* UPDATE CART */
 
-header{
-position:sticky;
-top:0;
-z-index:1000;
+function updateCart(){
 
+const cartItems =
+document.getElementById("cartItems");
+
+const cartCount =
+document.getElementById("cartCount");
+
+const cartTotal =
+document.getElementById("cartTotal");
+
+if(!cartItems) return;
+
+cartItems.innerHTML = "";
+
+let total = 0;
+
+cart.forEach(item=>{
+
+total += item.price;
+
+cartItems.innerHTML += `
+
+<div style="
 display:flex;
 justify-content:space-between;
-align-items:center;
+padding:10px 0;
+border-bottom:1px solid #eee;
+">
 
-padding:20px 8%;
+<span>${item.name}</span>
 
-background:white;
+<span>${item.price} лв</span>
 
-box-shadow:0 3px 15px rgba(0,0,0,0.08);
-}
+</div>
 
-.logo{
-font-size:28px;
-font-weight:700;
-color:#a33d74;
-}
+`;
 
-nav{
-display:flex;
-gap:25px;
-}
+});
 
-nav a{
-text-decoration:none;
-color:#333;
-font-weight:500;
-transition:0.3s;
-}
+cartCount.textContent =
+cart.length;
 
-nav a:hover{
-color:#c04a8f;
-}
+cartTotal.textContent =
+"Total: " + total + " лв";
 
-.header-icons{
-display:flex;
-align-items:center;
-gap:25px;
-font-size:22px;
-cursor:pointer;
-}
-
-.cart-icon{
-position:relative;
-}
-
-#cartCount{
-position:absolute;
-top:-10px;
-right:-12px;
-
-background:#c04a8f;
-color:white;
-
-width:20px;
-height:20px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border-radius:50%;
-
-font-size:12px;
-}
-
-/* HERO */
-
-.hero{
-height:90vh;
-
-display:flex;
-align-items:center;
-
-padding:0 10%;
-
-background:
-linear-gradient(
-135deg,
-rgba(192,74,143,0.8),
-rgba(255,192,203,0.6)
-),
-
-url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600");
-
-background-size:cover;
-background-position:center;
-}
-
-.hero-content{
-max-width:600px;
-color:white;
-}
-
-.hero h1{
-font-size:70px;
-line-height:1.1;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-line-height:1.8;
-margin-bottom:30px;
-}
-
-.shop-btn{
-padding:16px 35px;
-
-background:white;
-color:#c04a8f;
-
-border:none;
-border-radius:50px;
-
-font-weight:600;
-font-size:16px;
-
-cursor:pointer;
-
-transition:0.3s;
-}
-
-.shop-btn:hover{
-transform:translateY(-3px);
 }
 
 /* SEARCH */
 
-.search-section{
-padding:40px 10%;
-text-align:center;
+function searchProducts(){
+
+const input =
+document.getElementById("searchInput");
+
+const filter =
+input.value.toLowerCase();
+
+const cards =
+document.querySelectorAll(".product-card");
+
+cards.forEach(card=>{
+
+const text =
+card.textContent.toLowerCase();
+
+if(text.includes(filter)){
+
+card.style.display = "block";
+
+}
+else{
+
+card.style.display = "none";
+
 }
 
-#searchInput{
-width:100%;
-max-width:600px;
+});
 
-padding:18px;
-
-border:none;
-outline:none;
-
-border-radius:50px;
-
-background:#f7f7f7;
-
-font-size:16px;
 }
 
-/* CATEGORIES */
+/* CHECKOUT */
 
-.categories{
-padding:60px 10%;
+function checkout(){
 
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+if(cart.length === 0){
+
+alert(
+"Your cart is empty!"
+);
+
+return;
+
 }
 
-.category-card{
-background:white;
+orders.push({
 
-border-radius:25px;
-overflow:hidden;
+date:
+new Date().toLocaleDateString(),
 
-box-shadow:0 5px 25px rgba(0,0,0,0.08);
+items:[...cart]
 
-transition:0.3s;
-}
+});
 
-.category-card:hover{
-transform:translateY(-8px);
-}
+localStorage.setItem(
+"beautyOrders",
+JSON.stringify(orders)
+);
 
-.category-card img{
-width:100%;
-height:300px;
-object-fit:cover;
-}
+localStorage.removeItem(
+"beautyCart"
+);
 
-.category-card h3{
-padding:20px;
-font-size:24px;
-text-align:center;
-}
+cart=[];
 
-/* PRODUCT SECTIONS */
+updateCart();
 
-section h2{
-text-align:center;
-font-size:42px;
-margin-bottom:40px;
-color:#a33d74;
-}
+renderOrders();
 
-/* PRODUCTS GRID */
+alert(
+"Order placed successfully 💖"
+);
 
-.products{
-
-padding:0 10% 80px;
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-}
-
-/* PRODUCT CARD */
-
-.product-card{
-
-background:white;
-
-border-radius:25px;
-
-overflow:hidden;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-
-transition:0.3s;
-}
-
-.product-card:hover{
-transform:translateY(-8px);
-}
-
-.product-card img{
-width:100%;
-height:280px;
-object-fit:cover;
-}
-
-.product-info{
-padding:20px;
-}
-
-.product-info h3{
-margin-bottom:10px;
-}
-
-.product-info p{
-color:#666;
-margin-bottom:15px;
-}
-
-.price{
-font-size:20px;
-font-weight:700;
-color:#c04a8f;
-}
-
-.product-card button{
-
-width:100%;
-
-padding:14px;
-
-background:#c04a8f;
-color:white;
-
-border:none;
-border-radius:12px;
-
-cursor:pointer;
-
-font-weight:600;
-
-margin-top:15px;
-}
-
-/* CART */
-
-.cart-section{
-padding:80px 10%;
-background:#fff8fb;
-}
-
-#cartItems{
-background:white;
-padding:25px;
-border-radius:20px;
-margin-bottom:20px;
-}
-
-#cartTotal{
-margin-top:15px;
-color:#a33d74;
 }
 
 /* ORDERS */
 
-#orders{
-padding:80px 10%;
-}
+function renderOrders(){
 
-#ordersContainer{
-background:white;
-padding:25px;
-border-radius:20px;
+const container =
+document.getElementById(
+"ordersContainer"
+);
 
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
+if(!container) return;
 
-/* CONTACT */
+container.innerHTML = "";
 
-.contact{
-padding:80px 10%;
+orders.forEach(order=>{
+
+container.innerHTML += `
+
+<div style="
+padding:20px;
+margin-bottom:15px;
 background:#fff8fb;
+border-radius:15px;
+">
+
+<h4>
+Order Date:
+${order.date}
+</h4>
+
+<p>
+Products:
+${order.items.length}
+</p>
+
+</div>
+
+`;
+
+});
+
 }
 
-.contact-box{
-max-width:500px;
-margin:auto;
-
-background:white;
-
-padding:30px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
-
-.contact-box p{
-margin:15px 0;
-}
-
-/* FOOTER */
-
-footer{
-background:#a33d74;
-color:white;
-
-text-align:center;
-
-padding:30px;
-}
+renderOrders();
 
 /* TOAST */
 
-#toast{
+function showToast(){
 
-position:fixed;
+const toast =
+document.getElementById(
+"toast"
+);
 
-bottom:30px;
-right:30px;
+toast.classList.add(
+"show"
+);
 
-background:#c04a8f;
-color:white;
+setTimeout(()=>{
 
-padding:15px 25px;
+toast.classList.remove(
+"show"
+);
 
-border-radius:15px;
-
-opacity:0;
-pointer-events:none;
-
-transition:0.3s;
-
-font-weight:600;
-}
-
-#toast.show{
-opacity:1;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:45px;
-}
-
-.hero{
-height:auto;
-padding:100px 10%;
-}
-
-nav{
-display:none;
-}
-
-section h2{
-font-size:32px;
-}
+},2000);
 
 }
+
+/* INITIAL LOAD */
+
+updateCart();
