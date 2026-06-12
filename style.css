@@ -1,27 +1,24 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: linear-gradient(135deg, #ffd1e8, #fff);
+  background: #ffe6f2;
 }
 
-/* HEADER */
 header {
-  background: linear-gradient(90deg, #ff4fa3, #ff77c6);
+  background: #ff4fa3;
   color: white;
   text-align: center;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(255,0,120,0.3);
+  padding: 15px;
 }
 
 #search {
   width: 90%;
-  padding: 12px;
-  border-radius: 25px;
+  padding: 10px;
+  border-radius: 20px;
   border: none;
 }
 
-/* NAV */
-.nav {
+nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,58 +26,43 @@ header {
   padding: 10px;
 }
 
-.nav button {
+nav button {
   margin: 5px;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   background: #ff4fa3;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.nav button:hover {
-  transform: scale(1.05);
-  background: #ff2f8a;
+main {
+  padding: 10px;
 }
 
-/* PRODUCTS */
 #products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  padding: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .card {
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
+  background: white;
+  border-radius: 15px;
   padding: 10px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img {
   width: 100%;
-  border-radius: 12px;
-}
-
-.badge {
-  background: #ff4fa3;
-  color: white;
-  font-size: 12px;
-  padding: 3px 8px;
   border-radius: 10px;
 }
 
-/* MODAL */
+button {
+  cursor: pointer;
+}
+
 #modal {
   display: none;
   position: fixed;
@@ -93,30 +75,14 @@ header {
 
 .modalBox {
   background: white;
-  margin: 10% auto;
-  padding: 20px;
   width: 80%;
-  border-radius: 20px;
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 15px;
 }
 
-/* SIDEBARS */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
+.box {
+  display: none;
   background: white;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.2);
   padding: 15px;
-  transition: 0.4s;
-  overflow-y: auto;
-}
-
-.sidebar.active {
-  right: 0;
-}
-
-.sidebar.right {
-  left: auto;
 }
