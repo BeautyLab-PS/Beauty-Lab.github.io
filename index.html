@@ -11,16 +11,28 @@
 
 <header>
   <h1>💗 Beauty Lab</h1>
-  <input id="search" placeholder="Търси продукти... 🔎">
+  <div class="topbar">
+    <input id="search" placeholder="Търси Dior, Rare Beauty, NYX...">
+    <button onclick="openCart()">🛒</button>
+    <button onclick="openCheckout()">Checkout</button>
+  </div>
 </header>
 
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h2>Luxury Beauty Store</h2>
+    <p>Dior • Rare Beauty • NYX • The Ordinary • CeraVe</p>
+  </div>
+</section>
+
 <!-- MENU -->
-<nav class="menu">
+<nav>
   <button onclick="filter('all')">Home</button>
   <button onclick="filter('face')">Лице</button>
-  <button onclick="filter('body')">Тяло</button>
-  <button onclick="filter('hair')">Коса</button>
   <button onclick="filter('makeup')">Грим</button>
+  <button onclick="filter('hair')">Коса</button>
+  <button onclick="filter('body')">Тяло</button>
   <button onclick="filter('accessories')">Аксесоари</button>
 </nav>
 
@@ -29,16 +41,36 @@
   <div id="products"></div>
 </main>
 
-<!-- PRODUCT PAGE (MODAL STYLE) -->
-<div id="productPage">
-  <div class="productBox">
-    <span onclick="closeProduct()">✖</span>
-    <img id="pImg">
-    <h2 id="pName"></h2>
-    <p id="pDesc"></p>
-    <h3 id="pPrice"></h3>
-    <button onclick="addCart()">🛒 Добави в количка</button>
+<!-- PRODUCT MODAL -->
+<div id="modal">
+  <div class="modalBox">
+    <span onclick="closeModal()">✖</span>
+    <img id="mImg">
+    <h2 id="mName"></h2>
+    <p id="mDesc"></p>
+    <h3 id="mPrice"></h3>
+    <button onclick="addToCart()">🛒 Add to cart</button>
   </div>
+</div>
+
+<!-- CART -->
+<div id="cart" class="panel">
+  <h2>🛒 Your Cart</h2>
+  <div id="cartItems"></div>
+  <button onclick="openCheckout()">Go Checkout</button>
+</div>
+
+<!-- CHECKOUT -->
+<div id="checkout" class="panel">
+  <h2>🧾 Checkout</h2>
+  <div id="checkoutItems"></div>
+
+  <input placeholder="Name">
+  <input placeholder="Address">
+  <input placeholder="Email">
+
+  <button onclick="pay()">Pay Now 💳</button>
+  <button onclick="closeCheckout()">Back</button>
 </div>
 
 <script src="script.js"></script>
