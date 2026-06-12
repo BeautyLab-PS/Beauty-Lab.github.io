@@ -69,24 +69,3 @@ function openProduct(id){
 function closeModal(){
   document.getElementById("modal").style.display="none";
 }
-
-/* CART */
-function addCart(id){
-  cart.push(products.find(p=>p.id===id));
-  alert("Добавено в количката 🛒");
-}
-
-/* FILTER */
-function filter(cat){
-  if(cat==="all") render();
-  else render(products.filter(p=>p.cat===cat));
-}
-
-/* SEARCH */
-document.getElementById("search").addEventListener("input", e=>{
-  render(products.filter(p=>
-    p.name.toLowerCase().includes(e.target.value.toLowerCase())
-  ));
-});
-
-render();
