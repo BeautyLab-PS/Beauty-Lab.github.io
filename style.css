@@ -1,108 +1,415 @@
+/* =========================
+   BEAUTY LAB STYLE
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
 body{
-    margin:0;
-    font-family:Segoe UI;
-    background:#fafafa;
-    color:#111;
+font-family:'Poppins',sans-serif;
+background:#fff;
+color:#222;
 }
 
 /* HEADER */
+
 header{
-    position:sticky;
-    top:0;
-    background:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 8%;
-    border-bottom:1px solid #eee;
+position:sticky;
+top:0;
+z-index:1000;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 8%;
+
+background:white;
+
+box-shadow:0 3px 15px rgba(0,0,0,0.08);
 }
 
-header h1{
-    color:#ff3d7f;
+.logo{
+font-size:28px;
+font-weight:700;
+color:#a33d74;
 }
 
-.tagline{
-    font-size:12px;
-    color:#888;
+nav{
+display:flex;
+gap:25px;
 }
 
-/* NAV */
 nav a{
-    margin:0 8px;
-    text-decoration:none;
-    color:#333;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
 }
 
-nav a:hover{color:#ff3d7f}
-
-/* HOME */
-#home{
-    margin:20px 8%;
-    padding:50px;
-    background:linear-gradient(135deg,#ffe3ef,#fff);
-    border-radius:15px;
+nav a:hover{
+color:#c04a8f;
 }
 
-/* PRODUCTS */
+.header-icons{
+display:flex;
+align-items:center;
+gap:25px;
+font-size:22px;
+cursor:pointer;
+}
+
+.cart-icon{
+position:relative;
+}
+
+#cartCount{
+position:absolute;
+top:-10px;
+right:-12px;
+
+background:#c04a8f;
+color:white;
+
+width:20px;
+height:20px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+font-size:12px;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+
+display:flex;
+align-items:center;
+
+padding:0 10%;
+
+background:
+linear-gradient(
+135deg,
+rgba(192,74,143,0.8),
+rgba(255,192,203,0.6)
+),
+
+url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:600px;
+color:white;
+}
+
+.hero h1{
+font-size:70px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.shop-btn{
+padding:16px 35px;
+
+background:white;
+color:#c04a8f;
+
+border:none;
+border-radius:50px;
+
+font-weight:600;
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.shop-btn:hover{
+transform:translateY(-3px);
+}
+
+/* SEARCH */
+
+.search-section{
+padding:40px 10%;
+text-align:center;
+}
+
+#searchInput{
+width:100%;
+max-width:600px;
+
+padding:18px;
+
+border:none;
+outline:none;
+
+border-radius:50px;
+
+background:#f7f7f7;
+
+font-size:16px;
+}
+
+/* CATEGORIES */
+
+.categories{
+padding:60px 10%;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.category-card{
+background:white;
+
+border-radius:25px;
+overflow:hidden;
+
+box-shadow:0 5px 25px rgba(0,0,0,0.08);
+
+transition:0.3s;
+}
+
+.category-card:hover{
+transform:translateY(-8px);
+}
+
+.category-card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.category-card h3{
+padding:20px;
+font-size:24px;
+text-align:center;
+}
+
+/* PRODUCT SECTIONS */
+
+section h2{
+text-align:center;
+font-size:42px;
+margin-bottom:40px;
+color:#a33d74;
+}
+
+/* PRODUCTS GRID */
+
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:20px 8%;
+
+padding:0 10% 80px;
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
 }
 
-/* CARD */
-.card{
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    border:1px solid #eee;
-    transition:0.3s;
+/* PRODUCT CARD */
+
+.product-card{
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+transition:0.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.product-card:hover{
+transform:translateY(-8px);
 }
 
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
+.product-card img{
+width:100%;
+height:280px;
+object-fit:cover;
 }
 
-.card h4{
-    margin:10px;
+.product-info{
+padding:20px;
 }
 
-.card p{
-    margin:0 10px 10px;
-    color:#777;
+.product-info h3{
+margin-bottom:10px;
 }
 
-/* BUTTON */
-button{
-    background:#ff3d7f;
-    color:white;
-    border:none;
-    padding:10px;
-    width:calc(100% - 20px);
-    margin:10px;
-    border-radius:10px;
+.product-info p{
+color:#666;
+margin-bottom:15px;
+}
+
+.price{
+font-size:20px;
+font-weight:700;
+color:#c04a8f;
+}
+
+.product-card button{
+
+width:100%;
+
+padding:14px;
+
+background:#c04a8f;
+color:white;
+
+border:none;
+border-radius:12px;
+
+cursor:pointer;
+
+font-weight:600;
+
+margin-top:15px;
 }
 
 /* CART */
-.cartBox,.checkoutBox{
-    background:white;
-    padding:20px;
-    margin:10px 8%;
-    border-radius:12px;
-    border:1px solid #eee;
+
+.cart-section{
+padding:80px 10%;
+background:#fff8fb;
+}
+
+#cartItems{
+background:white;
+padding:25px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+#cartTotal{
+margin-top:15px;
+color:#a33d74;
+}
+
+/* ORDERS */
+
+#orders{
+padding:80px 10%;
+}
+
+#ordersContainer{
+background:white;
+padding:25px;
+border-radius:20px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* CONTACT */
+
+.contact{
+padding:80px 10%;
+background:#fff8fb;
+}
+
+.contact-box{
+max-width:500px;
+margin:auto;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact-box p{
+margin:15px 0;
 }
 
 /* FOOTER */
+
 footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:20px;
+background:#a33d74;
+color:white;
+
+text-align:center;
+
+padding:30px;
+}
+
+/* TOAST */
+
+#toast{
+
+position:fixed;
+
+bottom:30px;
+right:30px;
+
+background:#c04a8f;
+color:white;
+
+padding:15px 25px;
+
+border-radius:15px;
+
+opacity:0;
+pointer-events:none;
+
+transition:0.3s;
+
+font-weight:600;
+}
+
+#toast.show{
+opacity:1;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:45px;
+}
+
+.hero{
+height:auto;
+padding:100px 10%;
+}
+
+nav{
+display:none;
+}
+
+section h2{
+font-size:32px;
+}
+
 }
