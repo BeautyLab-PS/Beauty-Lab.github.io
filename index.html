@@ -4,76 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beauty Lab</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>Beauty Lab 💖</h1>
-    <span class="tagline">Glow • Care • Confidence</span>
+<div class="logo">Beauty Lab</div>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#body">Тяло</a>
-        <a href="#hair">Коса</a>
-        <a href="#face">Лице</a>
-        <a href="#makeup">Грим</a>
-        <a href="#acc">Аксесоари</a>
-        <a href="#cart">Количка</a>
-    </nav>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="orders.html">My Orders</a>
+</nav>
+
+<div class="icons">
+<span>♡</span>
+<span>🛒</span>
+</div>
 </header>
 
-<section id="home">
-    <h2>💖 Beauty Lab</h2>
-    <p>Луксозен beauty магазин за грижа и грим</p>
+<section class="hero">
+<h1>Refining Your Beauty Ritual</h1>
 
-    <input id="searchInput" onkeyup="searchProducts()" placeholder="Търси продукт...">
+<p>
+Elevate your daily routine with Beauty Lab's curated
+collection of premium skincare, makeup and haircare.
+</p>
+
+<a href="shop.html" class="btn">
+Shop Now
+</a>
 </section>
 
-<section id="body">
-<h2>Грижа за тяло</h2>
-<div class="products" id="bodyP"></div>
-</section>
+<section class="categories">
 
-<section id="hair">
-<h2>Грижа за коса</h2>
-<div class="products" id="hairP"></div>
-</section>
+<div class="category">
+<img src="images/skincare.jpg">
+<h3>Skincare</h3>
+</div>
 
-<section id="face">
-<h2>Грижа за лице</h2>
-<div class="products" id="faceP"></div>
-</section>
+<div class="category">
+<img src="images/makeup.jpg">
+<h3>Makeup</h3>
+</div>
 
-<section id="makeup">
-<h2>Грим</h2>
-<div class="products" id="makeupP"></div>
-</section>
-
-<section id="acc">
-<h2>Аксесоари</h2>
-<div class="products" id="accP"></div>
-</section>
-
-<section id="cart">
-<h2>🛒 Количка</h2>
-
-<div class="cartBox" id="cartBox"></div>
-<h3 id="total">Общо: 0 лв</h3>
-
-<div class="checkoutBox">
-    <h3>Checkout</h3>
-    <input placeholder="Име">
-    <input placeholder="Адрес">
-    <button onclick="checkout()">Поръчай</button>
+<div class="category">
+<img src="images/haircare.jpg">
+<h3>Hair Care</h3>
 </div>
 
 </section>
 
-<footer>© 2026 Beauty Lab</footer>
-
-<script src="script.js"></script>
-
+<script src="js/script.js"></script>
 </body>
 </html>
