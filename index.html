@@ -11,17 +11,12 @@
 
 <header>
   <h1>💗 Beauty Lab</h1>
+  <input id="search" placeholder="Търси продукти... 🔎">
 </header>
 
-<!-- 🌸 HERO -->
-<div class="hero">
-  <h2>Луксозна козметика онлайн</h2>
-  <p>Skincare • Makeup • Hair • Accessories</p>
-</div>
-
-<!-- 💎 ГОЛЯМО ЦЕНТРАЛНО МЕНЮ -->
-<nav class="bigMenu">
-  <button onclick="filter('all')">🏠 Home</button>
+<!-- MENU -->
+<nav class="menu">
+  <button onclick="filter('all')">Home</button>
   <button onclick="filter('face')">Лице</button>
   <button onclick="filter('body')">Тяло</button>
   <button onclick="filter('hair')">Коса</button>
@@ -29,29 +24,22 @@
   <button onclick="filter('accessories')">Аксесоари</button>
 </nav>
 
-<!-- 🔎 SEARCH -->
-<div class="searchBox">
-  <input id="search" placeholder="Търси продукти...">
-</div>
-
-<!-- 🛍️ HOME CONTENT -->
-<section class="homeExtra">
-  <div class="bannerSmall">✨ New Season Beauty Deals</div>
-  <div class="bannerSmall">💖 Trending TikTok Products</div>
-  <div class="bannerSmall">🔥 Best Sellers</div>
-</section>
-
 <!-- PRODUCTS -->
 <main>
   <div id="products"></div>
 </main>
 
-<!-- CONTACT -->
-<footer>
-  <h2>📩 Контакт</h2>
-  <p>Email: beauty@lab.com</p>
-  <p>Phone: +359 888 123 456</p>
-</footer>
+<!-- PRODUCT PAGE (MODAL STYLE) -->
+<div id="productPage">
+  <div class="productBox">
+    <span onclick="closeProduct()">✖</span>
+    <img id="pImg">
+    <h2 id="pName"></h2>
+    <p id="pDesc"></p>
+    <h3 id="pPrice"></h3>
+    <button onclick="addCart()">🛒 Добави в количка</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
