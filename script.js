@@ -1,11 +1,11 @@
 const products = [
-  { id:1,name:"Rare Beauty Blush",price:42,cat:"makeup",tag:"HOT",img:"https://images.unsplash.com/photo-1612810436541",desc:"Луксозен руж с естествен ефект" },
-  { id:2,name:"Glow Serum",price:25,cat:"face",tag:"NEW",img:"https://images.unsplash.com/photo-1612810436542",desc:"Сияйна кожа" },
-  { id:3,name:"Kerastase Oil",price:55,cat:"hair",tag:"LUX",img:"https://images.unsplash.com/photo-1616671276441",desc:"Професионална грижа" },
+  {id:1,name:"Rare Blush",price:42,cat:"makeup",img:"https://images.unsplash.com/photo-1612810436541",desc:"Луксозен руж"},
+  {id:2,name:"Glow Serum",price:25,cat:"face",img:"https://images.unsplash.com/photo-1612810436542",desc:"Сияйна кожа"},
+  {id:3,name:"Hair Oil",price:55,cat:"hair",img:"https://images.unsplash.com/photo-1616671276441",desc:"Грижа за коса"},
 
-  { id:4,name:"Beauty Blender",price:18,cat:"accessories",tag:"NEW",img:"https://images.unsplash.com/photo-1620916566398",desc:"Перфектен грим" },
-  { id:5,name:"Brush Set",price:35,cat:"accessories",tag:"HOT",img:"https://images.unsplash.com/photo-1596704017254",desc:"Професионални четки" },
-  { id:6,name:"LED Mirror",price:60,cat:"accessories",tag:"LUX",img:"https://images.unsplash.com/photo-1586105251261",desc:"Луксозно огледало" }
+  {id:4,name:"Beauty Blender",price:18,cat:"accessories",img:"https://images.unsplash.com/photo-1620916566398",desc:"Грим гъбичка"},
+  {id:5,name:"Brush Set",price:35,cat:"accessories",img:"https://images.unsplash.com/photo-1596704017254",desc:"Четки за грим"},
+  {id:6,name:"LED Mirror",price:60,cat:"accessories",img:"https://images.unsplash.com/photo-1586105251261",desc:"Огледало"}
 ];
 
 let cart = [];
@@ -17,10 +17,9 @@ function render(list = products){
   const box = document.getElementById("products");
   box.innerHTML = "";
 
-  list.forEach(p => {
+  list.forEach(p=>{
     box.innerHTML += `
       <div class="card">
-        <span class="badge">${p.tag}</span>
         <img src="${p.img}">
         <h3>${p.name}</h3>
         <p>${p.price} лв</p>
@@ -41,11 +40,11 @@ function openProduct(id){
   document.getElementById("mDesc").innerText = current.desc;
   document.getElementById("mPrice").innerText = current.price + " лв";
 
-  document.getElementById("modal").style.display="block";
+  document.getElementById("modal").style.display = "block";
 }
 
 function closeModal(){
-  document.getElementById("modal").style.display="none";
+  document.getElementById("modal").style.display = "none";
 }
 
 /* CART */
@@ -54,7 +53,7 @@ function addCart(id){
   updateCart();
 }
 
-function addModal(){
+function addToCart(){
   cart.push(current);
   updateCart();
   closeModal();
@@ -68,21 +67,8 @@ function updateCart(){
 /* FAVORITES */
 function addFav(id){
   fav.push(products.find(p=>p.id===id));
-  updateFav();
-}
-
-function updateFav(){
   document.getElementById("favItems").innerHTML =
     fav.map(p=>`❤️ ${p.name}`).join("<br>");
-}
-
-/* SIDEBARS */
-function toggleCart(){
-  document.getElementById("cart").classList.toggle("active");
-}
-
-function toggleFav(){
-  document.getElementById("fav").classList.toggle("active");
 }
 
 /* FILTER */
