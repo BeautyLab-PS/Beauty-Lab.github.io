@@ -11,18 +11,17 @@
 
 <header>
   <h1>💗 Beauty Lab</h1>
-  <input id="search" placeholder="Търси продукти... 🔎">
 </header>
 
-<!-- 🌸 HERO BANNER -->
+<!-- 🌸 HERO -->
 <div class="hero">
-  <h2>Луксозна козметика онлайн 💄</h2>
-  <p>Най-добрите beauty продукти за теб</p>
+  <h2>Луксозна козметика онлайн</h2>
+  <p>Skincare • Makeup • Hair • Accessories</p>
 </div>
 
-<!-- NAV -->
-<nav>
-  <button onclick="filter('all')">Home</button>
+<!-- 💎 ГОЛЯМО ЦЕНТРАЛНО МЕНЮ -->
+<nav class="bigMenu">
+  <button onclick="filter('all')">🏠 Home</button>
   <button onclick="filter('face')">Лице</button>
   <button onclick="filter('body')">Тяло</button>
   <button onclick="filter('hair')">Коса</button>
@@ -30,31 +29,29 @@
   <button onclick="filter('accessories')">Аксесоари</button>
 </nav>
 
+<!-- 🔎 SEARCH -->
+<div class="searchBox">
+  <input id="search" placeholder="Търси продукти...">
+</div>
+
+<!-- 🛍️ HOME CONTENT -->
+<section class="homeExtra">
+  <div class="bannerSmall">✨ New Season Beauty Deals</div>
+  <div class="bannerSmall">💖 Trending TikTok Products</div>
+  <div class="bannerSmall">🔥 Best Sellers</div>
+</section>
+
 <!-- PRODUCTS -->
 <main>
   <div id="products"></div>
 </main>
 
 <!-- CONTACT -->
-<section class="contact">
-  <h2>📩 Контакт с нас</h2>
+<footer>
+  <h2>📩 Контакт</h2>
   <p>Email: beauty@lab.com</p>
-  <p>Телефон: +359 888 123 456</p>
-  <textarea placeholder="Напиши съобщение..."></textarea>
-  <button>Изпрати</button>
-</section>
-
-<!-- MODAL -->
-<div id="modal">
-  <div class="modalBox">
-    <span onclick="closeModal()">✖</span>
-    <img id="mImg">
-    <h2 id="mName"></h2>
-    <p id="mDesc"></p>
-    <h3 id="mPrice"></h3>
-    <button onclick="addToCart()">🛒 Добави</button>
-  </div>
-</div>
+  <p>Phone: +359 888 123 456</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
