@@ -1,99 +1,57 @@
-body {
-  font-family: Arial;
-  margin: 0;
-  background: linear-gradient(135deg, #ffd1dc, #fff0f5);
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-header {
-  background: #ff4fa3;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
+<body>
 
-nav button {
-  margin: 5px;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  background: white;
-  cursor: pointer;
-}
+<header>
+  <h1>💗 Beauty Lab</h1>
+  <input id="search" placeholder="Търси продукти... 🔎">
+</header>
 
-nav button:hover {
-  background: #ffe0ef;
-}
+<nav class="nav">
+  <button onclick="filter('all')">Home</button>
+  <button onclick="filter('face')">Лице</button>
+  <button onclick="filter('body')">Тяло</button>
+  <button onclick="filter('hair')">Коса</button>
+  <button onclick="filter('makeup')">Грим</button>
+  <button onclick="filter('accessories')">Аксесоари ✨</button>
 
-#search {
-  padding: 10px;
-  width: 60%;
-  border-radius: 20px;
-  border: none;
-  margin-top: 10px;
-}
+  <button onclick="showCart()">🛒 Количка</button>
+  <button onclick="showFav()">❤️ Любими</button>
+</nav>
 
-.section {
-  display: none;
-  padding: 20px;
-}
+<section id="products"></section>
 
-.section.active {
-  display: block;
-}
+<!-- PRODUCT MODAL -->
+<div id="modal">
+  <div class="modalBox">
+    <span onclick="closeModal()">✖</span>
+    <img id="mImg">
+    <h2 id="mName"></h2>
+    <p id="mDesc"></p>
+    <h3 id="mPrice"></h3>
+    <button onclick="addToCart()">Добави в количка 🛒</button>
+  </div>
+</div>
 
-#products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
+<!-- CART -->
+<div id="cart" class="panel">
+  <h2>🛒 Количка</h2>
+  <div id="cartItems"></div>
+</div>
 
-.product {
-  background: white;
-  padding: 10px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-}
+<!-- FAVORITES -->
+<div id="fav" class="panel">
+  <h2>❤️ Любими</h2>
+  <div id="favItems"></div>
+</div>
 
-.product img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-button {
-  background: #ff4fa3;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 10px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #ff2f8a;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  margin: 10% auto;
-  width: 300px;
-  border-radius: 15px;
-}
-
-.close {
-  float: right;
-  cursor: pointer;
-  font-size: 20px;
-}
+<script src="script.js"></script>
+</body>
+</html>
