@@ -14,20 +14,37 @@
   <input id="search" placeholder="Търси продукти... 🔎">
 </header>
 
+<!-- 🌸 HERO BANNER -->
+<div class="hero">
+  <h2>Луксозна козметика онлайн 💄</h2>
+  <p>Най-добрите beauty продукти за теб</p>
+</div>
+
+<!-- NAV -->
 <nav>
   <button onclick="filter('all')">Home</button>
   <button onclick="filter('face')">Лице</button>
   <button onclick="filter('body')">Тяло</button>
   <button onclick="filter('hair')">Коса</button>
   <button onclick="filter('makeup')">Грим</button>
-  <button onclick="filter('accessories')">Аксесоари ✨</button>
+  <button onclick="filter('accessories')">Аксесоари</button>
 </nav>
 
+<!-- PRODUCTS -->
 <main>
   <div id="products"></div>
 </main>
 
-<!-- PRODUCT MODAL -->
+<!-- CONTACT -->
+<section class="contact">
+  <h2>📩 Контакт с нас</h2>
+  <p>Email: beauty@lab.com</p>
+  <p>Телефон: +359 888 123 456</p>
+  <textarea placeholder="Напиши съобщение..."></textarea>
+  <button>Изпрати</button>
+</section>
+
+<!-- MODAL -->
 <div id="modal">
   <div class="modalBox">
     <span onclick="closeModal()">✖</span>
@@ -35,20 +52,8 @@
     <h2 id="mName"></h2>
     <p id="mDesc"></p>
     <h3 id="mPrice"></h3>
-    <button onclick="addToCart()">Добави 🛒</button>
+    <button onclick="addToCart()">🛒 Добави</button>
   </div>
-</div>
-
-<!-- CART -->
-<div id="cartBox" class="box">
-  <h2>🛒 Количка</h2>
-  <div id="cartItems"></div>
-</div>
-
-<!-- FAVORITES -->
-<div id="favBox" class="box">
-  <h2>❤️ Любими</h2>
-  <div id="favItems"></div>
 </div>
 
 <script src="script.js"></script>
