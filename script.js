@@ -13,11 +13,11 @@ description:"Indigo Overnight Repair Redness Reducing Barrier Cream Moisturizer"
 
 {
 id:2,
-name:"CeraVe Cleanser",
-price:24.99,
+name:"Summer Fridays ",
+price:15.50,
 category:"face",
 image:"images/face2.jpg",
-description:"Нежен почистващ гел."
+description:"Mini Pink Dew Gel Cleanser."
 },
 
 {
