@@ -5,7 +5,7 @@ const products = [
 {
 id:1,
 name:"Tatcha ",
-price:19.99,
+price:70,
 category:"face",
 image:"images/face1.jpg",
 description:"Серум за контрол на омазняването."
