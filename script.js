@@ -8,7 +8,7 @@ name:"Tatcha ",
 price:70,
 category:"face",
 image:"images/face1.jpg",
-description:"Серум за контрол на омазняването."
+description:"Indigo Overnight Repair Redness Reducing Barrier Cream Moisturizer"
 },
 
 {
