@@ -4,7 +4,7 @@ const products = [
 
 {
 id:1,
-name:"The Ordinary Niacinamide",
+name:"Tatcha ",
 price:19.99,
 category:"face",
 image:"images/face1.jpg",
