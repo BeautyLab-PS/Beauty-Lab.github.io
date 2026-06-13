@@ -1,117 +1,424 @@
 const products = [
-  // MAKEUP (20+ REAL BRANDS STYLE)
-  {id:1,name:"Dior Lip Glow",price:55,cat:"makeup",img:"https://images.unsplash.com/photo-1596704017254",desc:"Hydrating luxury lip balm"},
-  {id:2,name:"Rare Beauty Blush",price:42,cat:"makeup",img:"https://images.unsplash.com/photo-1612810436541",desc:"Soft natural blush"},
-  {id:3,name:"NYX Butter Gloss",price:18,cat:"makeup",img:"https://images.unsplash.com/photo-1612810436542",desc:"Shiny lip gloss"},
-  {id:4,name:"Fenty Foundation",price:65,cat:"makeup",img:"https://images.unsplash.com/photo-1586105251261",desc:"Full coverage foundation"},
-  {id:5,name:"MAC Powder",price:50,cat:"makeup",img:"https://images.unsplash.com/photo-1620916566398",desc:"Matte finish powder"},
 
-  // FACE
-  {id:10,name:"The Ordinary Serum",price:25,cat:"face",img:"https://images.unsplash.com/photo-1612810436542",desc:"Hydration serum"},
-  {id:11,name:"CeraVe Moisturizer",price:30,cat:"face",img:"https://images.unsplash.com/photo-1612810436541",desc:"Dermatologist cream"},
+/* FACE */
 
-  // HAIR
-  {id:20,name:"Kerastase Hair Oil",price:70,cat:"hair",img:"https://images.unsplash.com/photo-1616671276441",desc:"Luxury hair repair"},
-  {id:21,name:"Moroccanoil Treatment",price:60,cat:"hair",img:"https://images.unsplash.com/photo-1620916566398",desc:"Smooth shiny hair"},
+{
+id:1,
+name:"The Ordinary Niacinamide",
+price:19.99,
+category:"face",
+image:"images/face1.jpg",
+description:"Серум за контрол на омазняването."
+},
 
-  // BODY
-  {id:30,name:"Victoria Secret Lotion",price:28,cat:"body",img:"https://images.unsplash.com/photo-1596704017254",desc:"Soft scented skin"},
-  {id:31,name:"Nivea Body Cream",price:15,cat:"body",img:"https://images.unsplash.com/photo-1612810436542",desc:"Daily hydration"},
+{
+id:2,
+name:"CeraVe Cleanser",
+price:24.99,
+category:"face",
+image:"images/face2.jpg",
+description:"Нежен почистващ гел."
+},
 
-  // ACCESSORIES
-  {id:40,name:"Real Techniques Brush Set",price:35,cat:"accessories",img:"https://images.unsplash.com/photo-1620916566398",desc:"Pro makeup brushes"},
-  {id:41,name:"Beauty Blender",price:18,cat:"accessories",img:"https://images.unsplash.com/photo-1612810436541",desc:"Flawless blending"}
+{
+id:3,
+name:"La Roche Posay Effaclar",
+price:29.99,
+category:"face",
+image:"images/face3.jpg",
+description:"Грижа за проблемна кожа."
+},
+
+/* BODY */
+
+{
+id:11,
+name:"Sol de Janeiro Cream",
+price:49.99,
+category:"body",
+image:"images/body1.jpg",
+description:"Популярен крем за тяло."
+},
+
+{
+id:12,
+name:"Victoria Secret Lotion",
+price:35.99,
+category:"body",
+image:"images/body2.jpg",
+description:"Хидратиращ лосион."
+},
+
+{
+id:13,
+name:"Dove Body Scrub",
+price:16.99,
+category:"body",
+image:"images/body3.jpg",
+description:"Нежен скраб."
+},
+
+/* HAIR */
+
+{
+id:21,
+name:"Kerastase Oil",
+price:59.99,
+category:"hair",
+image:"images/hair1.jpg",
+description:"Подхранващо масло."
+},
+
+{
+id:22,
+name:"Olaplex No.3",
+price:54.99,
+category:"hair",
+image:"images/hair2.jpg",
+description:"Възстановяваща терапия."
+},
+
+{
+id:23,
+name:"Moroccanoil",
+price:49.99,
+category:"hair",
+image:"images/hair3.jpg",
+description:"Арганово масло."
+},
+
+/* MAKEUP */
+
+{
+id:31,
+name:"Rare Beauty Blush",
+price:42.99,
+category:"makeup",
+image:"images/makeup1.jpg",
+description:"Течен руж."
+},
+
+{
+id:32,
+name:"Maybelline Sky High",
+price:19.99,
+category:"makeup",
+image:"images/makeup2.jpg",
+description:"Спирала за обем."
+},
+
+{
+id:33,
+name:"Fenty Gloss Bomb",
+price:39.99,
+category:"makeup",
+image:"images/makeup3.jpg",
+description:"Гланц за устни."
+},
+
+/* ACCESSORIES */
+
+{
+id:41,
+name:"Brush Set",
+price:34.99,
+category:"accessories",
+image:"images/accessory1.jpg",
+description:"Комплект четки."
+},
+
+{
+id:42,
+name:"Beauty Blender",
+price:14.99,
+category:"accessories",
+image:"images/accessory2.jpg",
+description:"Гъбичка за грим."
+},
+
+{
+id:43,
+name:"LED Mirror",
+price:69.99,
+category:"accessories",
+image:"images/accessory3.jpg",
+description:"LED огледало."
+}
+
 ];
 
 let cart = [];
-let current = null;
+let favorites = [];
+let selectedProduct = null;
 
-/* RENDER */
-function render(list = products){
-  const box = document.getElementById("products");
-  box.innerHTML = "";
+/* PRODUCTS */
 
-  list.forEach(p=>{
-    box.innerHTML += `
-      <div class="card">
-        <img src="${p.img}">
-        <h3>${p.name}</h3>
-        <p>${p.price} €</p>
-        <button onclick="openProduct(${p.id})">View</button>
-        <button onclick="addToCartById(${p.id})">🛒</button>
-      </div>
-    `;
-  });
-}
+function renderProducts(items){
 
-/* PRODUCT */
-function openProduct(id){
-  current = products.find(p=>p.id===id);
+const container =
+document.getElementById("productsContainer");
 
-  document.getElementById("mImg").src = current.img;
-  document.getElementById("mName").innerText = current.name;
-  document.getElementById("mDesc").innerText = current.desc;
-  document.getElementById("mPrice").innerText = current.price + " €";
+container.innerHTML = "";
 
-  document.getElementById("modal").style.display="block";
-}
+items.forEach(product=>{
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
+container.innerHTML += `
 
-/* CART */
-function addToCartById(id){
-  cart.push(products.find(p=>p.id===id));
-  updateCart();
-}
+<div class="product-card">
 
-function addToCart(){
-  cart.push(current);
-  updateCart();
-  closeModal();
-}
+<img src="${product.image}"
+alt="${product.name}">
 
-function updateCart(){
-  document.getElementById("cartItems").innerHTML =
-    cart.map(p=>`<p>${p.name} - ${p.price}€</p>`).join("");
-}
+<div class="product-info">
 
-/* CART PANEL */
-function openCart(){
-  document.getElementById("cart").style.display="block";
-}
+<h3>${product.name}</h3>
 
-/* CHECKOUT */
-function openCheckout(){
-  document.getElementById("checkout").style.display="block";
+<p>${product.description}</p>
 
-  document.getElementById("checkoutItems").innerHTML =
-    cart.map(p=>`<p>${p.name} - ${p.price}€</p>`).join("");
-}
+<div class="product-price">
+${product.price.toFixed(2)} лв
+</div>
 
-function closeCheckout(){
-  document.getElementById("checkout").style.display="none";
-}
+<div class="product-buttons">
 
-function pay(){
-  alert("Payment successful 💳✨");
-  cart = [];
-  updateCart();
-  closeCheckout();
+<button
+class="view-btn"
+onclick="openProduct(${product.id})">
+Преглед </button>
+
+<button
+class="cart-btn"
+onclick="addToCart(${product.id})">
+🛒 </button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
 }
 
 /* FILTER */
-function filter(cat){
-  if(cat==="all") render();
-  else render(products.filter(p=>p.cat===cat));
+
+function filterProducts(category){
+
+if(category === "all"){
+
+renderProducts(products);
+
+return;
+
+}
+
+const filtered =
+products.filter(
+product => product.category === category
+);
+
+renderProducts(filtered);
+
 }
 
 /* SEARCH */
-document.getElementById("search").addEventListener("input",(e)=>{
-  render(products.filter(p=>
-    p.name.toLowerCase().includes(e.target.value.toLowerCase())
-  ));
+
+document
+.getElementById("searchInput")
+.addEventListener("input", function(){
+
+const value =
+this.value.toLowerCase();
+
+const filtered =
+products.filter(product =>
+
+product.name
+.toLowerCase()
+.includes(value)
+
+);
+
+renderProducts(filtered);
+
 });
 
-render();
+/* PRODUCT MODAL */
+
+function openProduct(id){
+
+selectedProduct =
+products.find(
+product => product.id === id
+);
+
+document
+.getElementById("modalImage")
+.src =
+selectedProduct.image;
+
+document
+.getElementById("modalTitle")
+.textContent =
+selectedProduct.name;
+
+document
+.getElementById("modalDescription")
+.textContent =
+selectedProduct.description;
+
+document
+.getElementById("modalPrice")
+.textContent =
+selectedProduct.price.toFixed(2)
+
+* " лв";
+
+document
+.getElementById("productModal")
+.style.display =
+"block";
+
+}
+
+document
+.querySelector(".close-modal")
+.addEventListener("click", ()=>{
+
+document
+.getElementById("productModal")
+.style.display =
+"none";
+
+});
+
+/* CART */
+
+function addToCart(id){
+
+const product =
+products.find(
+product => product.id === id
+);
+
+cart.push(product);
+
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems =
+document.getElementById("cartItems");
+
+cartItems.innerHTML = "";
+
+let total = 0;
+
+cart.forEach(item=>{
+
+total += item.price;
+
+cartItems.innerHTML +=
+`
+
+<p>
+${item.name}
+-
+${item.price.toFixed(2)} лв
+</p>
+`;
+
+});
+
+document
+.getElementById("cartTotal")
+.textContent =
+"Общо: " +
+total.toFixed(2) +
+" лв";
+
+}
+
+/* FAVORITES */
+
+function addToFavorites(id){
+
+const product =
+products.find(
+product => product.id === id
+);
+
+favorites.push(product);
+
+updateFavorites();
+
+}
+
+function updateFavorites(){
+
+const container =
+document.getElementById("favoriteItems");
+
+container.innerHTML = "";
+
+favorites.forEach(item=>{
+
+container.innerHTML +=
+`
+
+<p>❤️ ${item.name}</p>
+`;
+
+});
+
+}
+
+/* SIDEBARS */
+
+const cartSidebar =
+document.getElementById("cartSidebar");
+
+const favoritesSidebar =
+document.getElementById("favoritesSidebar");
+
+document
+.getElementById("cartBtn")
+.addEventListener("click",()=>{
+
+cartSidebar.classList.toggle("active");
+
+});
+
+document
+.getElementById("favoritesBtn")
+.addEventListener("click",()=>{
+
+favoritesSidebar.classList.toggle("active");
+
+});
+
+document
+.getElementById("closeCart")
+.addEventListener("click",()=>{
+
+cartSidebar.classList.remove("active");
+
+});
+
+document
+.getElementById("closeFavorites")
+.addEventListener("click",()=>{
+
+favoritesSidebar.classList.remove("active");
+
+});
+
+/* START */
+
+renderProducts(products);
+
