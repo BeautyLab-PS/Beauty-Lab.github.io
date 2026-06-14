@@ -32,7 +32,7 @@ description:"Грижа за проблемна кожа."
 {
 id:4,
 name:"Peace Out",
-price:29.99,
+price:6.30,
 category:"face",
 image:"https://www.sephora.com/productimages/sku/s2860534-main-zoom.jpg?imwidth=1224",
 description:"Overnight Barrier Hydrating Bio-Collagen Recovery Mask."
