@@ -14,7 +14,7 @@ id: 2,
 name: "Summer Fridays",
 price: 15.50,
 category: "face",
-image: "images/face2.jpg",
+image: "https://www.sephora.com/productimages/sku/s2925311-main-zoom.jpg?imwidth=1224,
 description: "Mini Pink Dew Gel Cleanser."
 },
 {
