@@ -22,7 +22,7 @@ id: 3,
 name: "rhode",
 price: 37.99,
 category: "face",
-image: "images/face3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2896017-main-zoom.jpg?imwidth=1224",
 description: "Barrier Butter Intensive Moisture Balm"
 },
 {
