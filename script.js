@@ -366,7 +366,7 @@ document
 .textContent =
 selectedProduct.price.toFixed(2)
 
-* " лв";
+* "$";
 
 document
 .getElementById("productModal")
