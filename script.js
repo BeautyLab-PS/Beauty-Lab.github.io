@@ -56,7 +56,7 @@ id: 7,
 name: "Drunk Elephant",
 price: 25.99,
 category: "body",
-image: "images/body2.jpg",
+image: "https://www.sephora.com/productimages/sku/s2570117-main-zoom.jpg?imwidth=1224",
 description: "Scrubbi Bamboes™ Body Cleanser"
 },
 {
