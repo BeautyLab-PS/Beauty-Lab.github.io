@@ -72,7 +72,7 @@ id: 9,
 name: "Sol de Janeiro",
 price: 31.99,
 category: "body",
-image: "images/body3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2742146-main-zoom.jpg?imwidth=1224",
 description: "Rio Radiance™ SPF 50 Body Spray Sunscreen with Niacinamide"
 },
 {
