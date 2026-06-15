@@ -114,7 +114,7 @@ id: 14,
 name: "COLOR WOW",
 price: 30.00,
 category: "hair",
-image: "images/hair3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2446722-main-zoom.jpg?imwidth=1224",
 description: "Cult Favorite Firm + Flexible Hairspray"
 },
 {
@@ -122,7 +122,7 @@ id: 15,
 name: "OUAI",
 price: 37.99,
 category: "hair",
-image: "images/hair3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2413904-main-zoom.jpg?imwidth=1224",
 description: "Treatment Mask for Thick Hair"
 },
 
