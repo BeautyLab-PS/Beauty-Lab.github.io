@@ -90,7 +90,7 @@ id: 11,
 name: "Gisou",
 price: 39.99,
 category: "hair",
-image: "images/hair1.jpg",
+image: "https://www.sephora.com/productimages/sku/s2883361-main-zoom.jpg?imwidth=1224",
 description: "Honey Gloss Ceramide Therapy Hydrating Shampoo"
 },
 {
