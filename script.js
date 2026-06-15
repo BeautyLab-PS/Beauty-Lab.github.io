@@ -198,7 +198,7 @@ id: 24,
 name: "Vegamour Dermaroller",
 price: 48.00,
 category: "accessories",
-image: "images/accessory3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2790517-main-zoom.jpg?imwidth=1224",
 description: "Scalp Dermaroller"
 },
 {
@@ -206,7 +206,7 @@ id: 25,
 name: "Tarte",
 price: 18.00,
 category: "accessories",
-image: "images/accessory3.jpg",
+image: "https://www.sephora.com/productimages/sku/s3003852-main-zoom.jpg?imwidth=1224",
 description: "Lash Curler"
 }
 
