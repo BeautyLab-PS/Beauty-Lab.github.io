@@ -6,7 +6,7 @@ id: 1,
 name: "Tatcha",
 price: 70,
 category: "face",
-image: "images/face1.jpg",
+image: "https://www.sephora.com/productimages/sku/s2845204-main-zoom.jpg?imwidth=1224",
 description: "Indigo Overnight Repair Redness Reducing Barrier Cream Moisturizer"
 },
 {
