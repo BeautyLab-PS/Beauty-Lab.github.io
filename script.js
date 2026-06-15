@@ -98,7 +98,7 @@ id: 12,
 name: "Kérastase",
 price: 38.99,
 category: "hair",
-image: "images/hair2.jpg",
+image: "https://www.sephora.com/productimages/sku/s2856417-main-zoom.jpg?imwidth=1224",
 description: "Gloss Absolu Glaze Drops Anti-Frizz Hair Oil"
 },
 {
@@ -106,7 +106,7 @@ id: 13,
 name: "Vegamour",
 price: 35.99,
 category: "hair",
-image: "images/hair3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2473072-main-zoom.jpg?imwidth=1224",
 description: "GRO Dry Shampoo for Thinning Hair"
 },
 {
