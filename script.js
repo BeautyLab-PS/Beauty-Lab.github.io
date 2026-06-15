@@ -19,11 +19,11 @@ description: "Mini Pink Dew Gel Cleanser."
 },
 {
 id: 3,
-name: "La Roche Posay Effaclar",
-price: 29.99,
+name: "rhode",
+price: 37.99,
 category: "face",
 image: "images/face3.jpg",
-description: "Грижа за проблемна кожа."
+description: "Barrier Butter Intensive Moisture Balm"
 },
 {
 id: 4,
