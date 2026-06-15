@@ -80,7 +80,7 @@ id: 10,
 name: "Saint Jane Beauty",
 price: 57.99,
 category: "body",
-image: "images/body3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2679694-main-zoom.jpg?imwidth=1224",
 description: "Deep Sleep Bath Salts with Magnesium & Peptides"
 },
 
