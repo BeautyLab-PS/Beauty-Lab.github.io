@@ -38,7 +38,7 @@ id: 5,
 name: "ILIA",
 price: 28.30,
 category: "face",
-image: "https://www.sephora.com/productimages/sku/s2860534-main-zoom.jpg?imwidth=1224",
+image: "https://www.sephora.com/productimages/sku/s2963247-main-zoom.jpg?imwidth=1224",
 description: "Sun Serum Mineral Sunscreen SPF 50 with 8-Hour Oil Control"
 },
 
