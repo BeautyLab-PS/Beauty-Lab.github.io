@@ -99,7 +99,7 @@ description:"Deep Sleep Bath Salts with Magnesium & Peptides"
 
 {
 id:11,
-name:"Gisou"
+name:"Gisou",
 category:"hair",
 image:"images/hair1.jpg",
 description:"Honey Gloss Ceramide Therapy Hydrating Shampoo"
@@ -215,7 +215,7 @@ price:18.00,
 category:"accessories",
 image:"images/accessory3.jpg",
 description:"Sincerely Yours Blue Cloud Case Travel Bag"
-}
+},
 
 {
 id:24,
@@ -224,7 +224,7 @@ price:48.00,
 category:"accessories",
 image:"images/accessory3.jpg",
 description:"0.25 mm GRO+ Advanced Scalp Dermaroller"
-}
+},
 
 {
 id:25,
@@ -366,7 +366,8 @@ document
 .textContent =
 selectedProduct.price.toFixed(2)
 
-* "$";
+document.getElementById("modalPrice").textContent =
+selectedProduct.price.toFixed(2) + " $";
 
 document
 .getElementById("productModal")
@@ -437,8 +438,10 @@ total.toFixed(2) +
 
 /* FAVORITES */
 
-function addToFavorites(id){
-
+<button
+onclick="addToFavorites(${product.id})">
+❤️
+</button>
 const product =
 products.find(
 product => product.id === id
