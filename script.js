@@ -48,7 +48,7 @@ id: 6,
 name: "Sol de Janeiro",
 price: 34.00,
 category: "body",
-image: "images/body1.jpg",
+image: "https://www.sephora.com/productimages/sku/s2830909-main-zoom.jpg?imwidth=1224",
 description: "Delícia Drench™ Jet Set"
 },
 {
