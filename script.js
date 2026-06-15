@@ -153,27 +153,45 @@ description:"Skin Affair Soft Glow Cushion Foundation"
 },
 
 {
-id:32,
-name:"Maybelline Sky High",
-price:19.99,
+id:17,
+name:"Gucci",
+price:36.00,
 category:"makeup",
 image:"images/makeup2.jpg",
-description:"Спирала за обем."
+description:"L'Obscur Lengthening Mascara"
 },
 
 {
-id:33,
-name:"Fenty Gloss Bomb",
+id:18,
+name:"Rare Beauty by Selena Gomez",
 price:39.99,
 category:"makeup",
 image:"images/makeup3.jpg",
-description:"Гланц за устни."
+description:"Soft Pinch Tinted Lip Oil Stain"
+},
+
+{
+id:19,
+name:"MILK MAKEUP",
+price:24.00,
+category:"makeup",
+image:"images/makeup3.jpg",
+description:"Dewy Cream Highlighter Stick"
+},
+
+{
+id:20,
+name:"Urban Decay",
+price:55.99,
+category:"makeup",
+image:"images/makeup3.jpg",
+description:"Naked Shaped Cool-Toned Makeup Palette for Eyes & Face"
 },
 
 /* ACCESSORIES */
 
 {
-id:41,
+id:21,
 name:"Brush Set",
 price:34.99,
 category:"accessories",
