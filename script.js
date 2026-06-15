@@ -132,7 +132,7 @@ id: 16,
 name: "Yves Saint Laurent",
 price: 48.99,
 category: "makeup",
-image: "images/makeup1.jpg",
+image: "https://www.sephora.com/productimages/sku/s2962181-main-zoom.jpg?imwidth=1224",
 description: "Skin Affair Soft Glow Cushion Foundation"
 },
 {
@@ -140,7 +140,7 @@ id: 17,
 name: "Gucci",
 price: 36.00,
 category: "makeup",
-image: "images/makeup2.jpg",
+image: "https://www.sephora.com/productimages/sku/s2821338-main-zoom.jpg?imwidth=1224",
 description: "L'Obscur Lengthening Mascara"
 },
 {
@@ -148,7 +148,7 @@ id: 18,
 name: "Rare Beauty",
 price: 39.99,
 category: "makeup",
-image: "images/makeup3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2640159-main-zoom.jpg?imwidth=1224",
 description: "Soft Pinch Tinted Lip Oil Stain"
 },
 {
@@ -156,7 +156,7 @@ id: 19,
 name: "MILK MAKEUP",
 price: 24.00,
 category: "makeup",
-image: "images/makeup3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2135333-main-zoom.jpg?imwidth=1224",
 description: "Dewy Cream Highlighter Stick"
 },
 {
