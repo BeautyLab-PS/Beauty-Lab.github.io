@@ -164,7 +164,7 @@ id: 20,
 name: "Urban Decay",
 price: 55.99,
 category: "makeup",
-image: "images/makeup3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2878320-main-zoom.jpg?imwidth=1224",
 description: "Naked Palette"
 },
 
@@ -174,7 +174,7 @@ id: 21,
 name: "SEPHORA COLLECTION",
 price: 65.00,
 category: "accessories",
-image: "images/accessory1.jpg",
+image: "https://www.sephora.com/productimages/sku/s2760080-main-zoom.jpg?imwidth=1224",
 description: "The Total Brush Set"
 },
 {
@@ -182,7 +182,7 @@ id: 22,
 name: "Laura Mercier",
 price: 18.00,
 category: "accessories",
-image: "images/accessory2.jpg",
+image: "https://www.sephora.com/productimages/sku/s871111-main-zoom.jpg?imwidth=1224",
 description: "Velour Puff"
 },
 {
@@ -190,7 +190,7 @@ id: 23,
 name: "Sincerely Yours",
 price: 18.00,
 category: "accessories",
-image: "images/accessory3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2982221-main-zoom.jpg?imwidth=1224",
 description: "Blue Cloud Case Travel Bag"
 },
 {
