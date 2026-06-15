@@ -38,73 +38,118 @@ image:"https://www.sephora.com/productimages/sku/s2860534-main-zoom.jpg?imwidth=
 description:"Overnight Barrier Hydrating Bio-Collagen Recovery Mask."
 },
 
+{
+id:5,
+name:"ILIA",
+price:28.30,
+category:"face",
+image:"https://www.sephora.com/productimages/sku/s2860534-main-zoom.jpg?imwidth=1224",
+description:"Sun Serum Mineral Sunscreen SPF 50 with 8-Hour Oil Control"
+},
+
+
 /* BODY */
 
 {
-id:11,
-name:"Sol de Janeiro Cream",
-price:49.99,
+id:6,
+name:"Sol de Janeiro",
+price:34.00,
 category:"body",
 image:"images/body1.jpg",
-description:"Популярен крем за тяло."
+description:"Delícia Drench™ Jet Set"
+},
+
+{
+id:7,
+name:"Drunk Elephant",
+price:25.99,
+category:"body",
+image:"images/body2.jpg",
+description:"Scrubbi Bamboes™ Body Cleanser"
+},
+
+{
+id:8,
+name:"Salt & Stone",
+price:48.99,
+category:"body",
+image:"images/body3.jpg",
+description:"Santal & Vetiver Hydrating Body Lotion with Niacinamide"
+},
+
+{
+id:9,
+name:"Sol de Janeiro",
+price:31.99,
+category:"body",
+image:"images/body3.jpg",
+description:"Rio Radiance™ SPF 50 Body Spray Sunscreen with Niacinamide"
+},
+
+{
+id:10,
+name:"Saint Jane Beauty",
+price:57.99,
+category:"body",
+image:"images/body3.jpg",
+description:"Deep Sleep Bath Salts with Magnesium & Peptides"
+},
+ 
+/* HAIR */
+
+{
+id:11,
+name:"Gisou"
+category:"hair",
+image:"images/hair1.jpg",
+description:"Honey Gloss Ceramide Therapy Hydrating Shampoo"
 },
 
 {
 id:12,
-name:"Victoria Secret Lotion",
-price:35.99,
-category:"body",
-image:"images/body2.jpg",
-description:"Хидратиращ лосион."
+name:"Kérastase",
+price:38.99,
+category:"hair",
+image:"images/hair2.jpg",
+description:"Gloss Absolu Glaze Drops Anti-Frizz Hair Oil"
 },
 
 {
 id:13,
-name:"Dove Body Scrub",
-price:16.99,
-category:"body",
-image:"images/body3.jpg",
-description:"Нежен скраб."
-},
-
-/* HAIR */
-
-{
-id:21,
-name:"Kerastase Oil",
-price:59.99,
-category:"hair",
-image:"images/hair1.jpg",
-description:"Подхранващо масло."
-},
-
-{
-id:22,
-name:"Olaplex No.3",
-price:54.99,
-category:"hair",
-image:"images/hair2.jpg",
-description:"Възстановяваща терапия."
-},
-
-{
-id:23,
-name:"Moroccanoil",
-price:49.99,
+name:"Vegamour",
+price:35.99,
 category:"hair",
 image:"images/hair3.jpg",
-description:"Арганово масло."
+description:"GRO Dry Shampoo for Thinning Hair"
+},
+
+{
+id:14,
+name:"COLOR WOW",
+price:30.00,
+category:"hair",
+image:"images/hair3.jpg",
+description:"Cult Favorite Firm + Flexible Hairspray"
+},
+
+{
+id:15,
+name:"OUAI",
+price:37.99,
+category:"hair",
+image:"images/hair3.jpg",
+description:"Treatment Mask for Thick Hair"
 },
 
 /* MAKEUP */
 
 {
-id:31,
-name:"Rare Beauty Blush",
-price:42.99,
+id:16,
+name:"Yves Saint Laurent",
+price:48.99,
 category:"makeup",
 image:"images/makeup1.jpg",
-description:"Течен руж."
+description:"Skin Affair Soft Glow Cushion Foundation"
 },
 
 {
