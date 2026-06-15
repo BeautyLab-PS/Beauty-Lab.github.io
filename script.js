@@ -192,30 +192,49 @@ description:"Naked Shaped Cool-Toned Makeup Palette for Eyes & Face"
 
 {
 id:21,
-name:"Brush Set",
-price:34.99,
+name:"SEPHORA COLLECTION",
+price:65.00,
 category:"accessories",
 image:"images/accessory1.jpg",
-description:"Комплект четки."
+description:"The Total Brush Set"
 },
 
 {
-id:42,
-name:"Beauty Blender",
-price:14.99,
+id:22,
+name:"Laura Mercier",
+price:18.00,
 category:"accessories",
 image:"images/accessory2.jpg",
-description:"Гъбичка за грим."
+description:"Velour Puff"
 },
 
 {
-id:43,
-name:"LED Mirror",
-price:69.99,
+id:23,
+name:"Sincerely Yours",
+price:18.00,
 category:"accessories",
 image:"images/accessory3.jpg",
-description:"LED огледало."
+description:"Sincerely Yours Blue Cloud Case Travel Bag"
 }
+
+{
+id:24,
+name:"Vegamour",
+price:48.00,
+category:"accessories",
+image:"images/accessory3.jpg",
+description:"0.25 mm GRO+ Advanced Scalp Dermaroller"
+}
+
+{
+id:25,
+name:"tarte",
+price:18.00,
+category:"accessories",
+image:"images/accessory3.jpg",
+description:"picture perfect™ lash curler"
+}
+
 
 ];
 
