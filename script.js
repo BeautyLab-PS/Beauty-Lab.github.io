@@ -64,7 +64,7 @@ id: 8,
 name: "Salt & Stone",
 price: 48.99,
 category: "body",
-image: "images/body3.jpg",
+image: "https://www.sephora.com/productimages/sku/s2845154-main-zoom.jpg?imwidth=1224",
 description: "Santal & Vetiver Hydrating Body Lotion with Niacinamide"
 },
 {
